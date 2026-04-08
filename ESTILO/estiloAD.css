@@ -244,8 +244,7 @@ body.background-image > header {
   pointer-events: auto !important; 
   position: relative;
   z-index: 10 !important;
- margin-left: 230px !important;
-   padding-left: 130px !important;
+ 
 }
 
 /* El logo a la izquierda */
@@ -876,8 +875,6 @@ width: 100%; /* Ahora ocupa el 100% de su columna en lugar de usar vw */
     flex-direction: column; 
     align-items: center;
     margin-top: 0;
-  margin-left:0px !important;
-   padding-left: 0px !important;
     gap: 1rem; 
   }
   

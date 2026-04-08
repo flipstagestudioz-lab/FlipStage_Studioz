@@ -83,10 +83,17 @@ html {
   overflow: auto;
   font-family: 'VendSans', sans-serif;
   font-weight: 400;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   min-height: 100vh;
-  flex: 1;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
 }
 
 .background-image {
@@ -148,7 +155,8 @@ body.background-image > header {
 .navbar-brand img {
   height: 50px;
   width: auto;
-  object-fit: contain;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 
 .navbar-nav .nav-link {
@@ -156,6 +164,8 @@ body.background-image > header {
   font-weight: 800;
   color: #1D1D1B !important;
   font-size: 1 rem;
+  -webkit-transition: color 0.3s ease;
+  -o-transition: color 0.3s ease;
   transition: color 0.3s ease;
   text-align: center;
 }
@@ -173,6 +183,8 @@ body.background-image > header {
 
 .dropdown-menu .dropdown-item {
   color: #F5F8FE !important;
+  -webkit-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
   transition: all 0.3s ease;
    font-family: 'VendSans', sans-serif;
   font-weight: 800;
@@ -188,17 +200,23 @@ body.background-image > header {
 .dropdown-menu .dropdown-item:hover,
 .dropdown-menu .dropdown-item:focus {
   background-color: transparent !important;
-  filter: brightness(0) saturate(100%) invert(53%) sepia(85%) saturate(3048%) hue-rotate(325deg) brightness(101%) contrast(104%);
+  -webkit-filter: brightness(0) saturate(100%) invert(53%) sepia(85%) saturate(3048%) hue-rotate(325deg) brightness(101%) contrast(104%);
+          filter: brightness(0) saturate(100%) invert(53%) sepia(85%) saturate(3048%) hue-rotate(325deg) brightness(101%) contrast(104%);
 }
 
 
 .social-icons a img {
   height: 3vh;
+  -webkit-transition: -webkit-filter 0.3s ease;
+  transition: -webkit-filter 0.3s ease;
+  -o-transition: filter 0.3s ease;
   transition: filter 0.3s ease;
+  transition: filter 0.3s ease, -webkit-filter 0.3s ease;
 }
 
 .social-icons a:hover img {
-  filter: brightness(0) saturate(100%) invert(53%) sepia(85%) saturate(3048%) hue-rotate(325deg) brightness(101%) contrast(104%);
+  -webkit-filter: brightness(0) saturate(100%) invert(53%) sepia(85%) saturate(3048%) hue-rotate(325deg) brightness(101%) contrast(104%);
+          filter: brightness(0) saturate(100%) invert(53%) sepia(85%) saturate(3048%) hue-rotate(325deg) brightness(101%) contrast(104%);
 }
 
 .adventure-hero {
@@ -233,10 +251,19 @@ body.background-image > header {
 
 
 .adventure-content {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: row; /* Logo a la izquierda, Texto a la derecha en PC */
-  align-items: center; /* Los centra perfectamente a la misma altura */
-  justify-content: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row; /* Logo a la izquierda, Texto a la derecha en PC */
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center; /* Los centra perfectamente a la misma altura */
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   max-width: 1300px;
   gap: 6rem; /* Separación amplia para que no se vea apretado */
   z-index: 10;
@@ -251,7 +278,8 @@ body.background-image > header {
 .adventure-logo img {
   width: 35vw; /* Tamaño dinámico que se adapta al monitor */
   max-width: 900px;
-  animation: float 4s ease-in-out infinite;
+  -webkit-animation: float 4s ease-in-out infinite;
+          animation: float 4s ease-in-out infinite;
 }
 
 /* El texto a la derecha */
@@ -294,30 +322,73 @@ body.background-image > header {
   font-size: 1.2rem;
   font-weight: bold;
   text-decoration: none;
+  -webkit-transition: background-color 0.3s ease, -webkit-transform 0.3s ease;
+  transition: background-color 0.3s ease, -webkit-transform 0.3s ease;
+  -o-transition: transform 0.3s ease, background-color 0.3s ease;
   transition: transform 0.3s ease, background-color 0.3s ease;
-  animation: popIn 1.2s ease forwards;
+  transition: transform 0.3s ease, background-color 0.3s ease, -webkit-transform 0.3s ease;
+  -webkit-animation: popIn 1.2s ease forwards;
+          animation: popIn 1.2s ease forwards;
   margin-top: 1.5rem; 
 }
 
 .cta-button:hover {
   background-color: #1D1D1B;
   color: #F5F8FE;
-  transform: scale(1.05);
+  -webkit-transform: scale(1.05);
+      -ms-transform: scale(1.05);
+          transform: scale(1.05);
 }
 
-@keyframes fadeInBounce {
+@-webkit-keyframes fadeInBounce {
   0% {
-    transform: translateY(-50px);
+    -webkit-transform: translateY(-50px);
+            transform: translateY(-50px);
     opacity: 0;
   }
 
   60% {
-    transform: translateY(10px);
+    -webkit-transform: translateY(10px);
+            transform: translateY(10px);
     opacity: 1;
   }
 
   100% {
-    transform: translateY(0);
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+
+@keyframes fadeInBounce {
+  0% {
+    -webkit-transform: translateY(-50px);
+            transform: translateY(-50px);
+    opacity: 0;
+  }
+
+  60% {
+    -webkit-transform: translateY(10px);
+            transform: translateY(10px);
+    opacity: 1;
+  }
+
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+
+@-webkit-keyframes float {
+
+  0%,
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+
+  50% {
+    -webkit-transform: translateY(-8px);
+            transform: translateY(-8px);
   }
 }
 
@@ -325,22 +396,40 @@ body.background-image > header {
 
   0%,
   100% {
-    transform: translateY(0);
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
   }
 
   50% {
-    transform: translateY(-8px);
+    -webkit-transform: translateY(-8px);
+            transform: translateY(-8px);
+  }
+}
+
+@-webkit-keyframes popIn {
+  0% {
+    -webkit-transform: scale(0.5);
+            transform: scale(0.5);
+    opacity: 0;
+  }
+
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    opacity: 1;
   }
 }
 
 @keyframes popIn {
   0% {
-    transform: scale(0.5);
+    -webkit-transform: scale(0.5);
+            transform: scale(0.5);
     opacity: 0;
   }
 
   100% {
-    transform: scale(1);
+    -webkit-transform: scale(1);
+            transform: scale(1);
     opacity: 1;
   }
 }
@@ -368,10 +457,17 @@ body.background-image > header {
   width: 100%;
   max-width: 1200px; /* Ancho suficiente para el abanico */
   margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  perspective: 1200px; 
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-perspective: 1200px;
+          perspective: 1200px; 
   height: 60vh; 
   min-height: 500px; /* Un poco más de altura mínima para las tarjetas verticales */
 }
@@ -381,7 +477,8 @@ body.background-image > header {
   position: relative;
   width: 320px;  /* Más angosto */
   height: 480px; /* Más alto */
-  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
 }
 
 /* La tarjeta base */
@@ -391,7 +488,11 @@ body.background-image > header {
   left: 0;
   width: 100%;
   height: 100%;
+  -webkit-transition: opacity 0.6s ease, z-index 0s, -webkit-transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+  transition: opacity 0.6s ease, z-index 0s, -webkit-transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+  -o-transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.6s ease, z-index 0s;
   transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.6s ease, z-index 0s;
+  transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.6s ease, z-index 0s, -webkit-transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
   opacity: 0; 
   pointer-events: none; 
 }
@@ -400,11 +501,13 @@ body.background-image > header {
 .item-3d img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
   border: 15px solid white; /* Regresa el marco grueso */
   border-radius: 0px; /* Quitamos las curvas */
   background-color: #000;
-  box-shadow: 0 15px 40px rgba(0,0,0,0.8); /* Sombra dramática hacia abajo */
+  -webkit-box-shadow: 0 15px 40px rgba(0,0,0,0.8);
+          box-shadow: 0 15px 40px rgba(0,0,0,0.8); /* Sombra dramática hacia abajo */
   cursor: pointer;
 }
 
@@ -414,7 +517,8 @@ body.background-image > header {
 
 /* 1. CENTRAL (Enfrente) */
 .item-3d.active {
-  transform: translateX(0) translateZ(100px) rotateY(0deg) scale(1);
+  -webkit-transform: translateX(0) translateZ(100px) rotateY(0deg) scale(1);
+          transform: translateX(0) translateZ(100px) rotateY(0deg) scale(1);
   opacity: 1;
   z-index: 10;
   pointer-events: auto; 
@@ -423,14 +527,16 @@ body.background-image > header {
 /* 2. LATERALES PRIMARIAS */
 /* Tienen un translateX mayor (-55%) para que dejen ver más el marco de la tarjeta central */
 .item-3d.prev {
-  transform: translateX(-55%) translateZ(0px) rotateY(25deg) scale(0.85);
+  -webkit-transform: translateX(-55%) translateZ(0px) rotateY(25deg) scale(0.85);
+          transform: translateX(-55%) translateZ(0px) rotateY(25deg) scale(0.85);
   opacity: 1;
   z-index: 5;
   pointer-events: auto; 
 }
 
 .item-3d.next {
-  transform: translateX(55%) translateZ(0px) rotateY(-25deg) scale(0.85);
+  -webkit-transform: translateX(55%) translateZ(0px) rotateY(-25deg) scale(0.85);
+          transform: translateX(55%) translateZ(0px) rotateY(-25deg) scale(0.85);
   opacity: 1;
   z-index: 5;
   pointer-events: auto; 
@@ -438,14 +544,16 @@ body.background-image > header {
 
 /* 3. LATERALES SECUNDARIAS (Al fondo) */
 .item-3d.prev-2 {
-  transform: translateX(-95%) translateZ(-100px) rotateY(35deg) scale(0.7);
+  -webkit-transform: translateX(-95%) translateZ(-100px) rotateY(35deg) scale(0.7);
+          transform: translateX(-95%) translateZ(-100px) rotateY(35deg) scale(0.7);
   opacity: 0.9;
   z-index: 3;
   pointer-events: auto; 
 }
 
 .item-3d.next-2 {
-  transform: translateX(95%) translateZ(-100px) rotateY(-35deg) scale(0.7);
+  -webkit-transform: translateX(95%) translateZ(-100px) rotateY(-35deg) scale(0.7);
+          transform: translateX(95%) translateZ(-100px) rotateY(-35deg) scale(0.7);
   opacity: 0.9;
   z-index: 3;
   pointer-events: auto; 
@@ -455,13 +563,19 @@ body.background-image > header {
 .btn-3d {
   position: absolute;
   top: 50%;
-  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+          transform: translateY(-50%);
   background: none;
   border: none;
   z-index: 20;
   cursor: pointer;
   padding: 10px;
+  -webkit-transition: -webkit-transform 0.2s ease;
+  transition: -webkit-transform 0.2s ease;
+  -o-transition: transform 0.2s ease;
   transition: transform 0.2s ease;
+  transition: transform 0.2s ease, -webkit-transform 0.2s ease;
 }
 
 /* Flechas Blancas para contrastar con el fondo oscuro si tocan ahí */
@@ -469,11 +583,14 @@ body.background-image > header {
   width: 4vw; 
   min-width: 30px;
   max-width: 50px;
- filter: brightness(0) saturate(100%) invert(53%) sepia(85%) saturate(3048%) hue-rotate(325deg) brightness(101%) contrast(104%);
+ -webkit-filter: brightness(0) saturate(100%) invert(53%) sepia(85%) saturate(3048%) hue-rotate(325deg) brightness(101%) contrast(104%);
+         filter: brightness(0) saturate(100%) invert(53%) sepia(85%) saturate(3048%) hue-rotate(325deg) brightness(101%) contrast(104%);
 }
 
 .btn-3d:hover {
-  transform: translateY(-50%) scale(1.2);
+  -webkit-transform: translateY(-50%) scale(1.2);
+      -ms-transform: translateY(-50%) scale(1.2);
+          transform: translateY(-50%) scale(1.2);
 }
 
 .prev-3d { left: 2%; }
@@ -494,11 +611,16 @@ body.background-image > header {
 
 .footer-icon {
   height: 3vh;
+  -webkit-transition: -webkit-filter 0.3s ease;
+  transition: -webkit-filter 0.3s ease;
+  -o-transition: filter 0.3s ease;
   transition: filter 0.3s ease;
+  transition: filter 0.3s ease, -webkit-filter 0.3s ease;
 }
 
 .footer-icon:hover {
- filter: brightness(0) saturate(100%) invert(53%) sepia(85%) saturate(3048%) hue-rotate(325deg) brightness(101%) contrast(104%);
+ -webkit-filter: brightness(0) saturate(100%) invert(53%) sepia(85%) saturate(3048%) hue-rotate(325deg) brightness(101%) contrast(104%);
+         filter: brightness(0) saturate(100%) invert(53%) sepia(85%) saturate(3048%) hue-rotate(325deg) brightness(101%) contrast(104%);
 }
 
 
@@ -517,9 +639,16 @@ body.background-image > header {
 }
 
 .cotiza-container-final {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  align-items: center; /* Centrado horizontal total */
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center; /* Centrado horizontal total */
   gap: 30px; /* Espacio automático entre cada elemento de la caja */
 }
 
@@ -543,7 +672,11 @@ width: 100%; /* Ahora ocupa el 100% de su columna en lugar de usar vw */
 .cotiza-btn-wrapper {
   display: inline-block;
   margin-top: 20px; /* Más aire arriba del botón */
+  -webkit-transition: -webkit-transform 0.3s ease;
+  transition: -webkit-transform 0.3s ease;
+  -o-transition: transform 0.3s ease;
   transition: transform 0.3s ease;
+  transition: transform 0.3s ease, -webkit-transform 0.3s ease;
 }
 
 /* Reemplaza cualquier regla .cotiza-btn img anterior por esta */
@@ -553,15 +686,19 @@ width: 100%; /* Ahora ocupa el 100% de su columna en lugar de usar vw */
   min-width: 250px;
   max-width: 400px;
   height: auto;
-  filter: brightness(0) saturate(100%) invert(8%) sepia(4%) saturate(4173%) hue-rotate(202deg) brightness(94%) contrast(92%);
+  -webkit-filter: brightness(0) saturate(100%) invert(8%) sepia(4%) saturate(4173%) hue-rotate(202deg) brightness(94%) contrast(92%);
+          filter: brightness(0) saturate(100%) invert(8%) sepia(4%) saturate(4173%) hue-rotate(202deg) brightness(94%) contrast(92%);
 
 }
 
 .cotiza-btn-wrapper:hover .cotiza-btn-img-final {
-  transform: scale(1.05); /* El pequeño salto hacia adelante */
+  -webkit-transform: scale(1.05);
+      -ms-transform: scale(1.05);
+          transform: scale(1.05); /* El pequeño salto hacia adelante */
   
   /* ESTA FÓRMULA FUERZA EL COLOR #FF5964 */
-  filter: brightness(0) saturate(100%) invert(53%) sepia(85%) saturate(3048%) hue-rotate(325deg) brightness(101%) contrast(104%);
+  -webkit-filter: brightness(0) saturate(100%) invert(53%) sepia(85%) saturate(3048%) hue-rotate(325deg) brightness(101%) contrast(104%);
+          filter: brightness(0) saturate(100%) invert(53%) sepia(85%) saturate(3048%) hue-rotate(325deg) brightness(101%) contrast(104%);
 }
 .cotiza-btn img {
   /* Tamaño adaptable con límites para que no se vea ni microscópico ni gigante */
@@ -570,24 +707,32 @@ width: 100%; /* Ahora ocupa el 100% de su columna en lugar de usar vw */
   max-width: 450px;
   
   /* Agregamos el estado base del filtro aquí */
+  -webkit-transition: -webkit-filter 0.3s ease, -webkit-transform 0.3s ease;
+  transition: -webkit-filter 0.3s ease, -webkit-transform 0.3s ease;
+  -o-transition: filter 0.3s ease, transform 0.3s ease;
   transition: filter 0.3s ease, transform 0.3s ease;
+  transition: filter 0.3s ease, transform 0.3s ease, -webkit-filter 0.3s ease, -webkit-transform 0.3s ease;
   
   /* -----------------------------------------------------------
      ESTADO BASE: Convertir a tono oscuro #1D1D1B
      (Fórmula exacta partiendo de una imagen blanca)
      ----------------------------------------------------------- */
-  filter: brightness(0) saturate(100%) invert(10%) sepia(5%) saturate(500%) hue-rotate(200deg) brightness(95%) contrast(90%);
+  -webkit-filter: brightness(0) saturate(100%) invert(10%) sepia(5%) saturate(500%) hue-rotate(200deg) brightness(95%) contrast(90%);
+          filter: brightness(0) saturate(100%) invert(10%) sepia(5%) saturate(500%) hue-rotate(200deg) brightness(95%) contrast(90%);
 }
 
 /* El efecto al pasar el mouse (Hover) */
 .cotiza-btn:hover img {
-  transform: scale(1.05); /* Pequeño salto hacia adelante */
+  -webkit-transform: scale(1.05);
+      -ms-transform: scale(1.05);
+          transform: scale(1.05); /* Pequeño salto hacia adelante */
   
   /* -----------------------------------------------------------
      ESTADO HOVER: Convertir a tono rosa #FF5964
      (Fórmula exacta partiendo de una imagen blanca)
      ----------------------------------------------------------- */
-  filter: brightness(0) saturate(100%) invert(56%) sepia(68%) saturate(2371%) hue-rotate(318deg) brightness(101%) contrast(100%);
+  -webkit-filter: brightness(0) saturate(100%) invert(56%) sepia(68%) saturate(2371%) hue-rotate(318deg) brightness(101%) contrast(100%);
+          filter: brightness(0) saturate(100%) invert(56%) sepia(68%) saturate(2371%) hue-rotate(318deg) brightness(101%) contrast(100%);
 }
 
 
@@ -610,17 +755,28 @@ width: 100%; /* Ahora ocupa el 100% de su columna en lugar de usar vw */
   width: 70vw; /* Se adapta al ancho de la pantalla */
   max-width: 650px; /* Límite máximo para que no se vea gigante en PC */
   height: auto;
+  -webkit-transition: -webkit-transform 0.3s ease;
+  transition: -webkit-transform 0.3s ease;
+  -o-transition: transform 0.3s ease;
   transition: transform 0.3s ease;
+  transition: transform 0.3s ease, -webkit-transform 0.3s ease;
 }
 
 /* Opcional: un pequeño efecto al pasar el mouse por el título */
 .suscripciones-img:hover {
-  transform: scale(1.02);
+  -webkit-transform: scale(1.02);
+      -ms-transform: scale(1.02);
+          transform: scale(1.02);
 }
 
 .card-body-v2 {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   height: 80%; /* Ocupa todo el alto disponible de la tarjeta */
 }
 
@@ -688,16 +844,28 @@ width: 100%; /* Ahora ocupa el 100% de su columna en lugar de usar vw */
   /* --- CAMBIO 1: Más rectangulares (altas) --- */
   padding: 50px 30px 40px; 
   min-height: 550px; /* Fuerza a que la tarjeta sea larga verticalmente */
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  justify-content: space-between; /* Empuja el contenido arriba y el botón hasta abajo */
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between; /* Empuja el contenido arriba y el botón hasta abajo */
   /* ------------------------------------------ */
 
   position: relative;
   
   /* --- CAMBIO 2: Sombra mucho más pronunciada --- */
-  box-shadow: 15px 20px 40px rgba(0, 0, 0, 0.18) !important; 
+  -webkit-box-shadow: 15px 20px 40px rgba(0, 0, 0, 0.18) !important;
+          box-shadow: 15px 20px 40px rgba(0, 0, 0, 0.18) !important; 
   /* ---------------------------------------------- */
+  
+  -webkit-transition: all 0.4s ease;
+  
+  -o-transition: all 0.4s ease;
   
   transition: all 0.4s ease;
   height: 80%;
@@ -715,14 +883,19 @@ width: 100%; /* Ahora ocupa el 100% de su columna en lugar de usar vw */
   font-family: 'VendSans', sans-serif;
   font-weight: 800;
   font-size: 1.4rem;
-  clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 85%, 0 100%);
-  box-shadow: 0 5px 15px rgba(255, 89, 100, 0.4);
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 85%, 0 100%);
+          clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 85%, 0 100%);
+  -webkit-box-shadow: 0 5px 15px rgba(255, 89, 100, 0.4);
+          box-shadow: 0 5px 15px rgba(255, 89, 100, 0.4);
   z-index: 5;
 }
 
 .pricing-card-v2:hover {
-  transform: translateY(-10px); 
-  box-shadow: 15px 25px 50px rgba(0, 0, 0, 0.25) !important; /* La sombra crece al pasar el mouse */
+  -webkit-transform: translateY(-10px);
+      -ms-transform: translateY(-10px);
+          transform: translateY(-10px); 
+  -webkit-box-shadow: 15px 25px 50px rgba(0, 0, 0, 0.25) !important; 
+          box-shadow: 15px 25px 50px rgba(0, 0, 0, 0.25) !important; /* La sombra crece al pasar el mouse */
 }
 
 /* -------------------------------------------
@@ -735,10 +908,15 @@ width: 100%; /* Ahora ocupa el 100% de su columna en lugar de usar vw */
   border: none !important; 
   /* --------------------------------------------------------- */
   
-  transform: scale(1.05);
+  -webkit-transform: scale(1.05);
+  
+      -ms-transform: scale(1.05);
+  
+          transform: scale(1.05);
   
   /* Sombra oscura y dramática para que resalte aún más */
-  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4) !important; 
+  -webkit-box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4) !important;
+          box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4) !important; 
 }
 
 /* Textos internos destacados */
@@ -749,8 +927,11 @@ width: 100%; /* Ahora ocupa el 100% de su columna en lugar de usar vw */
 }
 
 .pricing-card-v2.featured:hover {
-  transform: scale(1.08) translateY(-5px);
-  box-shadow: 0 35px 70px rgba(0, 0, 0, 0.5) !important;
+  -webkit-transform: scale(1.08) translateY(-5px);
+      -ms-transform: scale(1.08) translateY(-5px);
+          transform: scale(1.08) translateY(-5px);
+  -webkit-box-shadow: 0 35px 70px rgba(0, 0, 0, 0.5) !important;
+          box-shadow: 0 35px 70px rgba(0, 0, 0, 0.5) !important;
 }
 
 .btn-adventure {
@@ -763,6 +944,8 @@ width: 100%; /* Ahora ocupa el 100% de su columna en lugar de usar vw */
   text-decoration: none;
   font-weight: 800;
   font-size: 1.1rem;
+  -webkit-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
   transition: all 0.3s ease;
   width: 100%;
   
@@ -789,13 +972,21 @@ width: 100%; /* Ahora ocupa el 100% de su columna en lugar de usar vw */
 
 .fade-in-on-scroll {
   opacity: 0;
-  transform: translateY(50px);
+  -webkit-transform: translateY(50px);
+      -ms-transform: translateY(50px);
+          transform: translateY(50px);
+  -webkit-transition: opacity 3s ease-out, -webkit-transform 4s ease-out;
+  transition: opacity 3s ease-out, -webkit-transform 4s ease-out;
+  -o-transition: opacity 3s ease-out, transform 4s ease-out;
   transition: opacity 3s ease-out, transform 4s ease-out;
+  transition: opacity 3s ease-out, transform 4s ease-out, -webkit-transform 4s ease-out;
 }
 
 .fade-in-on-scroll.visible {
   opacity: 1;
-  transform: translateY(0);
+  -webkit-transform: translateY(0);
+      -ms-transform: translateY(0);
+          transform: translateY(0);
 }
 
 
@@ -808,7 +999,8 @@ width: 100%; /* Ahora ocupa el 100% de su columna en lugar de usar vw */
  header, .navbar {
         background-color: #ffffff !important;
         /* Opcional: Una sombra sutil para separar del héroe oscuro */
-        box-shadow: 0 4px 10px rgba(0,0,0,0.1) !important;
+        -webkit-box-shadow: 0 4px 10px rgba(0,0,0,0.1) !important;
+                box-shadow: 0 4px 10px rgba(0,0,0,0.1) !important;
     }
 
     /* Aseguramos que la caja colapsable (donde caen los enlaces) también sea blanca */
@@ -845,7 +1037,9 @@ width: 100%; /* Ahora ocupa el 100% de su columna en lugar de usar vw */
     }
 
   .social-icons {
-    justify-content: center !important;
+    -webkit-box-pack: center !important;
+        -ms-flex-pack: center !important;
+            justify-content: center !important;
   }
 
   .social-icons a img {
@@ -872,20 +1066,29 @@ width: 100%; /* Ahora ocupa el 100% de su columna en lugar de usar vw */
 
   /* 2. Apilamos los elementos y reducimos espacios */
   .adventure-content {
-    flex-direction: column; 
-    align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column; 
+    -webkit-box-align: center; 
+        -ms-flex-align: center; 
+            align-items: center;
     margin-top: 0;
     gap: 1rem; 
   }
   
   .adventure-logo {
     margin-top: 0;
-    justify-content: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
   }
   
   /* 3. Ajustamos el logo */
   .adventure-logo img {
-    transform: rotate(0deg); 
+    -webkit-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+            transform: rotate(0deg); 
     width: 80vw;
     max-width: 300px; 
   }
@@ -924,8 +1127,8 @@ width: 100%; /* Ahora ocupa el 100% de su columna en lugar de usar vw */
     width: 220px;
     height: 330px;
   }
-  .item-3d.prev { transform: translateX(-50%) translateZ(-50px) rotateY(30deg) scale(0.8); }
-  .item-3d.next { transform: translateX(50%) translateZ(-50px) rotateY(-30deg) scale(0.8); }
+  .item-3d.prev { -webkit-transform: translateX(-50%) translateZ(-50px) rotateY(30deg) scale(0.8); transform: translateX(-50%) translateZ(-50px) rotateY(30deg) scale(0.8); }
+  .item-3d.next { -webkit-transform: translateX(50%) translateZ(-50px) rotateY(-30deg) scale(0.8); transform: translateX(50%) translateZ(-50px) rotateY(-30deg) scale(0.8); }
   /* En móvil escondemos las secundarias para no hacer un desastre visual en pantallas pequeñas */
   .item-3d.prev-2, .item-3d.next-2 { opacity: 0; pointer-events: none; }
 
@@ -1000,33 +1203,67 @@ width: 100%; /* Ahora ocupa el 100% de su columna en lugar de usar vw */
 
   /* 6. Control absoluto de la tarjeta negra */
   .pricing-card-v2.featured {
-    transform: scale(1) !important; 
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25) !important; /* Sombra más suave */
+    -webkit-transform: scale(1) !important;
+        -ms-transform: scale(1) !important;
+            transform: scale(1) !important; 
+    -webkit-box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25) !important; 
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25) !important; /* Sombra más suave */
   }
 
   .pricing-card-v2.featured:hover {
-    transform: translateY(-3px) !important;
+    -webkit-transform: translateY(-3px) !important;
+        -ms-transform: translateY(-3px) !important;
+            transform: translateY(-3px) !important;
+  }
+  @-webkit-keyframes levitarMovil {
+    0% {
+      -webkit-transform: translateY(0);
+              transform: translateY(0);
+      -webkit-box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+              box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+    }
+    50% {
+      -webkit-transform: translateY(-8px);
+              transform: translateY(-8px); /* Sube ligeramente */
+      -webkit-box-shadow: 0 18px 35px rgba(255, 89, 100, 0.3);
+              box-shadow: 0 18px 35px rgba(255, 89, 100, 0.3); /* La sombra se pinta de tu rosa coral */
+    }
+    100% {
+      -webkit-transform: translateY(0);
+              transform: translateY(0);
+      -webkit-box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+              box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+    }
   }
   @keyframes levitarMovil {
     0% {
-      transform: translateY(0);
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+      -webkit-transform: translateY(0);
+              transform: translateY(0);
+      -webkit-box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+              box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
     }
     50% {
-      transform: translateY(-8px); /* Sube ligeramente */
-      box-shadow: 0 18px 35px rgba(255, 89, 100, 0.3); /* La sombra se pinta de tu rosa coral */
+      -webkit-transform: translateY(-8px);
+              transform: translateY(-8px); /* Sube ligeramente */
+      -webkit-box-shadow: 0 18px 35px rgba(255, 89, 100, 0.3);
+              box-shadow: 0 18px 35px rgba(255, 89, 100, 0.3); /* La sombra se pinta de tu rosa coral */
     }
     100% {
-      transform: translateY(0);
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+      -webkit-transform: translateY(0);
+              transform: translateY(0);
+      -webkit-box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+              box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
     }
   }
 
   /* Reemplazamos la regla anterior de la tarjeta negra por esta para inyectar la animación */
   .pricing-card-v2.featured {
-    transform: scale(1) !important; 
+    -webkit-transform: scale(1) !important;
+        -ms-transform: scale(1) !important;
+            transform: scale(1) !important; 
     /* La animación dura 3.5 segundos y se repite infinitamente */
-    animation: levitarMovil 3.5s ease-in-out infinite !important; 
+    -webkit-animation: levitarMovil 3.5s ease-in-out infinite !important;
+            animation: levitarMovil 3.5s ease-in-out infinite !important; 
   }
 
 }

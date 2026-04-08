@@ -83,10 +83,17 @@ html {
   overflow: auto;
   font-family: 'VendSans', sans-serif;
   font-weight: 400;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   min-height: 100vh;
-  flex: 1;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
 }
 
 .background-image {
@@ -127,7 +134,8 @@ header {
 .navbar-brand img {
   height: 50px; 
   width: auto;
-  object-fit: contain; 
+  -o-object-fit: contain;
+     object-fit: contain; 
 }
 
 .navbar-nav .nav-link {
@@ -135,6 +143,8 @@ header {
   font-weight: 800;
   color: #F5F8FE !important;
   font-size: 1 rem;
+  -webkit-transition: color 0.3s ease;
+  -o-transition: color 0.3s ease;
   transition: color 0.3s ease;
   text-align: center;
 }
@@ -144,6 +154,8 @@ header {
   font-weight: 800;
   color: #F5F8FE !important;
   font-size: 1.2rem;
+  -webkit-transition: color 0.3s ease;
+  -o-transition: color 0.3s ease;
   transition: color 0.3s ease;
   text-align: center;
 }
@@ -167,6 +179,8 @@ header {
 
 .dropdown-menu .dropdown-item {
   color: #F5F8FE !important;
+  -webkit-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
   transition: all 0.3s ease;
    font-family: 'VendSans', sans-serif;
   font-weight: 800;
@@ -193,11 +207,16 @@ header {
 
 .social-icons a img {
   height: 3vh;
+  -webkit-transition: -webkit-filter 0.3s ease;
+  transition: -webkit-filter 0.3s ease;
+  -o-transition: filter 0.3s ease;
   transition: filter 0.3s ease;
+  transition: filter 0.3s ease, -webkit-filter 0.3s ease;
 }
 
 .social-icons a:hover img {
-  filter: brightness(0) invert(64%) sepia(91%) saturate(516%) hue-rotate(23deg) brightness(99%) contrast(101%);
+  -webkit-filter: brightness(0) invert(64%) sepia(91%) saturate(516%) hue-rotate(23deg) brightness(99%) contrast(101%);
+          filter: brightness(0) invert(64%) sepia(91%) saturate(516%) hue-rotate(23deg) brightness(99%) contrast(101%);
 }
 
 #contacto {
@@ -254,7 +273,8 @@ header {
 
 .custom-input:focus, .custom-textarea:focus {
   border-color: #E5EA26 !important;
-  box-shadow: 0 0 10px rgba(229, 234, 38, 0.3) !important;
+  -webkit-box-shadow: 0 0 10px rgba(229, 234, 38, 0.3) !important;
+          box-shadow: 0 0 10px rgba(229, 234, 38, 0.3) !important;
   outline: none;
 }
 
@@ -267,13 +287,18 @@ header {
 
   padding: 12px 40px !important;
   border: none !important;
+  -webkit-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
   transition: all 0.3s ease;
   text-transform: uppercase;
 }
 
 .btn-brand-yellow:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 20px rgba(229, 234, 38, 0.4);
+  -webkit-transform: scale(1.05);
+      -ms-transform: scale(1.05);
+          transform: scale(1.05);
+  -webkit-box-shadow: 0 0 20px rgba(229, 234, 38, 0.4);
+          box-shadow: 0 0 20px rgba(229, 234, 38, 0.4);
   background-color: #f2f72b !important;
 }
 
@@ -290,11 +315,16 @@ footer {
 
 .footer-icon {
   height: 3vh;
+  -webkit-transition: -webkit-filter 0.3s ease;
+  transition: -webkit-filter 0.3s ease;
+  -o-transition: filter 0.3s ease;
   transition: filter 0.3s ease;
+  transition: filter 0.3s ease, -webkit-filter 0.3s ease;
 }
 
 .footer-icon:hover {
-  filter: brightness(0) invert(64%) sepia(91%) saturate(516%) hue-rotate(23deg) brightness(99%) contrast(101%);
+  -webkit-filter: brightness(0) invert(64%) sepia(91%) saturate(516%) hue-rotate(23deg) brightness(99%) contrast(101%);
+          filter: brightness(0) invert(64%) sepia(91%) saturate(516%) hue-rotate(23deg) brightness(99%) contrast(101%);
 }
 
 
@@ -319,7 +349,9 @@ footer {
   }
 
   .social-icons {
-    justify-content: center !important;
+    -webkit-box-pack: center !important;
+        -ms-flex-pack: center !important;
+            justify-content: center !important;
   }
 
   .social-icons a img {

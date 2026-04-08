@@ -83,10 +83,17 @@ html {
   overflow: auto;
   font-family: 'VendSans', sans-serif;
   font-weight: 400;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   min-height: 100vh;
-  flex: 1;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
 }
 
 .background-image {
@@ -133,7 +140,8 @@ header {
 .navbar-brand img {
   height: 50px;
   width: auto;
-  object-fit: contain;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 
 .navbar-nav .nav-link {
@@ -141,6 +149,8 @@ header {
   font-weight: 800;
   color: #F5F8FE !important;
   font-size: 1 rem;
+  -webkit-transition: color 0.3s ease;
+  -o-transition: color 0.3s ease;
   transition: color 0.3s ease;
   text-align: center;
 }
@@ -150,13 +160,16 @@ header {
   font-weight: 800;
   color: #F5F8FE !important;
   font-size: 1.2rem;
+  -webkit-transition: color 0.3s ease;
+  -o-transition: color 0.3s ease;
   transition: color 0.3s ease;
   text-align: center;
 }
 
 .navbar-nav .nav-link:hover,
 .navbar-nav .nav-link:focus {
-  filter: brightness(0) saturate(100%) invert(85%) sepia(20%) saturate(2500%) hue-rotate(5deg) brightness(105%) contrast(95%);
+  -webkit-filter: brightness(0) saturate(100%) invert(85%) sepia(20%) saturate(2500%) hue-rotate(5deg) brightness(105%) contrast(95%);
+          filter: brightness(0) saturate(100%) invert(85%) sepia(20%) saturate(2500%) hue-rotate(5deg) brightness(105%) contrast(95%);
 }
 
 .dropdown-menu {
@@ -167,6 +180,8 @@ header {
 
 .dropdown-menu .dropdown-item {
   color: #F5F8FE !important;
+  -webkit-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
   transition: all 0.3s ease;
    font-family: 'VendSans', sans-serif;
   font-weight: 800;
@@ -181,7 +196,8 @@ header {
 .dropdown-menu .dropdown-item:hover,
 .dropdown-menu .dropdown-item:focus {
   background-color: transparent !important;
-  filter: brightness(0) saturate(100%) invert(85%) sepia(20%) saturate(2500%) hue-rotate(5deg) brightness(105%) contrast(95%);
+  -webkit-filter: brightness(0) saturate(100%) invert(85%) sepia(20%) saturate(2500%) hue-rotate(5deg) brightness(105%) contrast(95%);
+          filter: brightness(0) saturate(100%) invert(85%) sepia(20%) saturate(2500%) hue-rotate(5deg) brightness(105%) contrast(95%);
 }
 
 .navbar-toggler {
@@ -195,11 +211,16 @@ header {
 .social-icons a img {
   height: 3vh;
   margin-right: 1vw; 
-  transition: filter 0.3s ease;
+  -webkit-transition: -webkit-filter 0.3s ease; 
+  transition: -webkit-filter 0.3s ease; 
+  -o-transition: filter 0.3s ease; 
+  transition: filter 0.3s ease; 
+  transition: filter 0.3s ease, -webkit-filter 0.3s ease;
 }
 
 .social-icons a:hover img {
-filter: brightness(0) saturate(100%) invert(85%) sepia(20%) saturate(2500%) hue-rotate(5deg) brightness(105%) contrast(95%);
+-webkit-filter: brightness(0) saturate(100%) invert(85%) sepia(20%) saturate(2500%) hue-rotate(5deg) brightness(105%) contrast(95%);
+        filter: brightness(0) saturate(100%) invert(85%) sepia(20%) saturate(2500%) hue-rotate(5deg) brightness(105%) contrast(95%);
 }
 
 
@@ -217,7 +238,9 @@ filter: brightness(0) saturate(100%) invert(85%) sepia(20%) saturate(2500%) hue-
   display: block;
   margin-left: 3vw;
   margin-top: 0vw;
-  transform-origin: right center; 
+  -webkit-transform-origin: right center;
+      -ms-transform-origin: right center;
+          transform-origin: right center; 
 }
 
 .hero-text-overlay {
@@ -226,8 +249,12 @@ filter: brightness(0) saturate(100%) invert(85%) sepia(20%) saturate(2500%) hue-
   
   /* ESTA ES LA MAGIA: Forzamos que se despegue del fondo hacia abajo */
   margin-bottom: 0 !important; /* Anulamos el mb-4 del HTML */
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;             /* Coloca los elementos en una fila */
-  align-items: center;       /* Los centra verticalmente para que queden parejos */
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;       /* Los centra verticalmente para que queden parejos */
   gap: 2vw;                  /* Crea un espacio entre el texto y el botón (ajústalo a tu gusto) */
 
 }
@@ -248,12 +275,22 @@ filter: brightness(0) saturate(100%) invert(85%) sepia(20%) saturate(2500%) hue-
   max-width: 300px; /* Ajusta este valor dependiendo de qué tan grande la quieras */
   height: auto;
 
+  -webkit-transition: -webkit-transform 0.3s ease;
+
+  transition: -webkit-transform 0.3s ease;
+
+  -o-transition: transform 0.3s ease;
+
   transition: transform 0.3s ease;
+
+  transition: transform 0.3s ease, -webkit-transform 0.3s ease;
 }
 
 /* Un pequeño efecto opcional al pasar el mouse por IMAGINACIÓN */
 .img-imaginacion:hover {
-  transform: scale(0.6);
+  -webkit-transform: scale(0.6);
+      -ms-transform: scale(0.6);
+          transform: scale(0.6);
 }
 
 
@@ -335,7 +372,8 @@ filter: brightness(0) saturate(100%) invert(85%) sepia(20%) saturate(2500%) hue-
 }
 
 .btn-item img:hover {
-  filter: brightness(0) saturate(100%) invert(88%) sepia(59%) saturate(601%) hue-rotate(12deg) brightness(107%) contrast(104%);
+  -webkit-filter: brightness(0) saturate(100%) invert(88%) sepia(59%) saturate(601%) hue-rotate(12deg) brightness(107%) contrast(104%);
+          filter: brightness(0) saturate(100%) invert(88%) sepia(59%) saturate(601%) hue-rotate(12deg) brightness(107%) contrast(104%);
 }
 
 
@@ -374,9 +412,16 @@ color: white;
 .review-content {
   max-width: 60%; /* Evita que el texto llegue hasta las flechas */
   margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   min-height: 150px; /* Asegura que el carrusel no brinque si un texto es más largo que otro */
 }
 
@@ -465,17 +510,24 @@ color: white;
   width: 30vw; 
   min-width: 250px;
   max-width: 450px;
+  -webkit-transition: -webkit-filter 0.3s ease, -webkit-transform 0.3s ease;
+  transition: -webkit-filter 0.3s ease, -webkit-transform 0.3s ease;
+  -o-transition: filter 0.3s ease, transform 0.3s ease;
   transition: filter 0.3s ease, transform 0.3s ease;
+  transition: filter 0.3s ease, transform 0.3s ease, -webkit-filter 0.3s ease, -webkit-transform 0.3s ease;
 }
 
 
 
 /* El efecto al pasar el mouse (Hover) */
 .cotiza-btn:hover img {
-  transform: scale(1.05); /* Pequeño salto hacia adelante */
+  -webkit-transform: scale(1.05);
+      -ms-transform: scale(1.05);
+          transform: scale(1.05); /* Pequeño salto hacia adelante */
   
   /* Fórmula matemática exacta para transformarlo a tu celeste #01AEB5 */
-  filter: brightness(0) saturate(100%) invert(50%) sepia(85%) saturate(2800%) hue-rotate(145deg) brightness(95%) contrast(100%);
+  -webkit-filter: brightness(0) saturate(100%) invert(50%) sepia(85%) saturate(2800%) hue-rotate(145deg) brightness(95%) contrast(100%);
+          filter: brightness(0) saturate(100%) invert(50%) sepia(85%) saturate(2800%) hue-rotate(145deg) brightness(95%) contrast(100%);
 }
 
 footer {
@@ -522,7 +574,9 @@ footer {
   }
 
   .social-icons {
-    justify-content: center !important;
+    -webkit-box-pack: center !important;
+        -ms-flex-pack: center !important;
+            justify-content: center !important;
   }
 
   .social-icons a img {
@@ -555,7 +609,9 @@ footer {
     height: auto !important;
     display: block;
      margin-left: 8% !important; 
-    transform: none !important; 
+    -webkit-transform: none !important; 
+        -ms-transform: none !important; 
+            transform: none !important; 
   
   }
 
@@ -589,9 +645,16 @@ footer {
   
   .btn-item {
     width: 30% !important; 
+    display: -webkit-box; 
+    display: -ms-flexbox; 
     display: flex;
-        flex-direction: column;
-        align-items: center;/* Un poco más grandes en móvil */
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+                flex-direction: column;
+        -webkit-box-align: center;
+            -ms-flex-align: center;
+                align-items: center;/* Un poco más grandes en móvil */
   }
 
   .btn-item p {
@@ -604,7 +667,8 @@ footer {
   .btn-item img {
   width: 25%;
   height: auto;
-  object-fit: contain;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 
 .btn-izquierda { 
@@ -655,42 +719,90 @@ footer {
   .footer-icon {
   height: 3vh;
   margin-right: 1.5vw ;
+  -webkit-transition: -webkit-filter 0.3s ease;
+  transition: -webkit-filter 0.3s ease;
+  -o-transition: filter 0.3s ease;
   transition: filter 0.3s ease;
+  transition: filter 0.3s ease, -webkit-filter 0.3s ease;
 }
 
 
 .cotiza-btn:active img,
   .btn-lime:active,
   .btn-outline-lime:active {
-    transform: scale(0.92) !important; /* Se hace un 8% más pequeño para simular presión */
-    transition: transform 0.1s ease; /* Súper rápido para que se sienta instantáneo */
+    -webkit-transform: scale(0.92) !important;
+        -ms-transform: scale(0.92) !important;
+            transform: scale(0.92) !important; /* Se hace un 8% más pequeño para simular presión */
+    -webkit-transition: -webkit-transform 0.1s ease;
+    transition: -webkit-transform 0.1s ease;
+    -o-transition: transform 0.1s ease;
+    transition: transform 0.1s ease;
+    transition: transform 0.1s ease, -webkit-transform 0.1s ease; /* Súper rápido para que se sienta instantáneo */
   }
 
 
 /* Definimos la animación CTA Periódica para móviles */
-@keyframes mobileCTAPopWiggle {
+@-webkit-keyframes mobileCTAPopWiggle {
     /* 5 segundos quieto de 6 totales (83.33% quieto) */
     0%, 83.33%, 100% { 
-        transform: scale(1) rotate(0deg);
-        filter: drop-shadow(0 0 3px rgba(229, 234, 38, 0.3)); /* Brillo muy tenue constante */
+        -webkit-transform: scale(1) rotate(0deg); 
+                transform: scale(1) rotate(0deg);
+        -webkit-filter: drop-shadow(0 0 3px rgba(229, 234, 38, 0.3));
+                filter: drop-shadow(0 0 3px rgba(229, 234, 38, 0.3)); /* Brillo muy tenue constante */
     }
     
     /* Comienza la acción (pop up y brillo intenso) */
     85% { 
-        transform: scale(1.1) rotate(0deg); /* Se hace un poco más grande */
-        filter: drop-shadow(0 0 15px rgba(229, 234, 38, 1)); /* Brillo intenso #E5EA26 */
+        -webkit-transform: scale(1.1) rotate(0deg); 
+                transform: scale(1.1) rotate(0deg); /* Se hace un poco más grande */
+        -webkit-filter: drop-shadow(0 0 15px rgba(229, 234, 38, 1));
+                filter: drop-shadow(0 0 15px rgba(229, 234, 38, 1)); /* Brillo intenso #E5EA26 */
     }
     
     /* Pequeño wiggle (meneo) para simular un clic */
-    87% { transform: scale(1.1) rotate(-5deg); } 
-    89% { transform: scale(1.1) rotate(5deg); }
-    91% { transform: scale(1.1) rotate(-2deg); }
-    93% { transform: scale(1.1) rotate(2deg); }
+    87% { -webkit-transform: scale(1.1) rotate(-5deg); transform: scale(1.1) rotate(-5deg); } 
+    89% { -webkit-transform: scale(1.1) rotate(5deg); transform: scale(1.1) rotate(5deg); }
+    91% { -webkit-transform: scale(1.1) rotate(-2deg); transform: scale(1.1) rotate(-2deg); }
+    93% { -webkit-transform: scale(1.1) rotate(2deg); transform: scale(1.1) rotate(2deg); }
     
     /* Termina el meneo, se mantiene grande y brillante un instante */
     95% { 
-        transform: scale(1.1) rotate(0deg);
-        filter: drop-shadow(0 0 15px rgba(229, 234, 38, 1));
+        -webkit-transform: scale(1.1) rotate(0deg); 
+                transform: scale(1.1) rotate(0deg);
+        -webkit-filter: drop-shadow(0 0 15px rgba(229, 234, 38, 1));
+                filter: drop-shadow(0 0 15px rgba(229, 234, 38, 1));
+    }
+    /* Comienza a volver a su estado normal */
+}
+@keyframes mobileCTAPopWiggle {
+    /* 5 segundos quieto de 6 totales (83.33% quieto) */
+    0%, 83.33%, 100% { 
+        -webkit-transform: scale(1) rotate(0deg); 
+                transform: scale(1) rotate(0deg);
+        -webkit-filter: drop-shadow(0 0 3px rgba(229, 234, 38, 0.3));
+                filter: drop-shadow(0 0 3px rgba(229, 234, 38, 0.3)); /* Brillo muy tenue constante */
+    }
+    
+    /* Comienza la acción (pop up y brillo intenso) */
+    85% { 
+        -webkit-transform: scale(1.1) rotate(0deg); 
+                transform: scale(1.1) rotate(0deg); /* Se hace un poco más grande */
+        -webkit-filter: drop-shadow(0 0 15px rgba(229, 234, 38, 1));
+                filter: drop-shadow(0 0 15px rgba(229, 234, 38, 1)); /* Brillo intenso #E5EA26 */
+    }
+    
+    /* Pequeño wiggle (meneo) para simular un clic */
+    87% { -webkit-transform: scale(1.1) rotate(-5deg); transform: scale(1.1) rotate(-5deg); } 
+    89% { -webkit-transform: scale(1.1) rotate(5deg); transform: scale(1.1) rotate(5deg); }
+    91% { -webkit-transform: scale(1.1) rotate(-2deg); transform: scale(1.1) rotate(-2deg); }
+    93% { -webkit-transform: scale(1.1) rotate(2deg); transform: scale(1.1) rotate(2deg); }
+    
+    /* Termina el meneo, se mantiene grande y brillante un instante */
+    95% { 
+        -webkit-transform: scale(1.1) rotate(0deg); 
+                transform: scale(1.1) rotate(0deg);
+        -webkit-filter: drop-shadow(0 0 15px rgba(229, 234, 38, 1));
+                filter: drop-shadow(0 0 15px rgba(229, 234, 38, 1));
     }
     /* Comienza a volver a su estado normal */
 }
@@ -699,18 +811,28 @@ footer {
     .btn-item {
         /* Los otros estilos móviles que ya definimos antes */
         width: 30% !important; 
+        display: -webkit-box; 
+        display: -ms-flexbox; 
         display: flex;
-        flex-direction: column;
-        align-items: center;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+                flex-direction: column;
+        -webkit-box-align: center;
+            -ms-flex-align: center;
+                align-items: center;
 
         /* --- AQUÍ LA MAGIA --- */
         /* Llamamos a la animación. Dura 6 segundos, en bucle infinito. */
-        animation: mobileCTAPopWiggle 6s ease-in-out infinite;
+        -webkit-animation: mobileCTAPopWiggle 6s ease-in-out infinite;
+                animation: mobileCTAPopWiggle 6s ease-in-out infinite;
         
         /* Opcional: Para evitar que el texto se mueva con el wiggle, aplicamos la animación solo a la imagen si lo prefieres: 
            Cambia .btn-item por .btn-item img y mueve 'transform-origin: center center;' aquí.
         */
-        transform-origin: center center; /* El punto de origen del escalado es el centro */
+        -webkit-transform-origin: center center;
+            -ms-transform-origin: center center;
+                transform-origin: center center; /* El punto de origen del escalado es el centro */
     }
 
     /* ... resto de tu CSS móvil ... */
@@ -723,23 +845,54 @@ footer {
    ========================================= */
 
 /* 1. Definimos la animación "Púlsar y Flotar" */
-@keyframes boomyheroDynamic {
+@-webkit-keyframes boomyheroDynamic {
     /* Estado inicial: tamaño normal, posición normal, brillo normal */
     0% {
-        transform: translate(-50%, -50%) scale(1) translateY(0) rotate(0deg);
-        filter: brightness(1); 
+        -webkit-transform: translate(-50%, -50%) scale(1) translateY(0) rotate(0deg);
+                transform: translate(-50%, -50%) scale(1) translateY(0) rotate(0deg);
+        -webkit-filter: brightness(1);
+                filter: brightness(1); 
     }
     
     /* Estado medio: crece, flota hacia arriba, brilla y gira un poco */
     50% {
-        transform: translate(-50%, -50%) scale(1.1) translateY(-15px) rotate(10deg); /* Crece 10%, flota 15px arriba */
-        filter: brightness(1.3); /* Brilla un 30% más */
+        -webkit-transform: translate(-50%, -50%) scale(1.1) translateY(-15px) rotate(10deg);
+                transform: translate(-50%, -50%) scale(1.1) translateY(-15px) rotate(10deg); /* Crece 10%, flota 15px arriba */
+        -webkit-filter: brightness(1.3);
+                filter: brightness(1.3); /* Brilla un 30% más */
     }
     
     /* Vuelve a su estado inicial para el bucle perfecto */
     100% {
-        transform: translate(-50%, -50%) scale(1) translateY(0) rotate(0deg);
-        filter: brightness(1);
+        -webkit-transform: translate(-50%, -50%) scale(1) translateY(0) rotate(0deg);
+                transform: translate(-50%, -50%) scale(1) translateY(0) rotate(0deg);
+        -webkit-filter: brightness(1);
+                filter: brightness(1);
+    }
+}
+@keyframes boomyheroDynamic {
+    /* Estado inicial: tamaño normal, posición normal, brillo normal */
+    0% {
+        -webkit-transform: translate(-50%, -50%) scale(1) translateY(0) rotate(0deg);
+                transform: translate(-50%, -50%) scale(1) translateY(0) rotate(0deg);
+        -webkit-filter: brightness(1);
+                filter: brightness(1); 
+    }
+    
+    /* Estado medio: crece, flota hacia arriba, brilla y gira un poco */
+    50% {
+        -webkit-transform: translate(-50%, -50%) scale(1.1) translateY(-15px) rotate(10deg);
+                transform: translate(-50%, -50%) scale(1.1) translateY(-15px) rotate(10deg); /* Crece 10%, flota 15px arriba */
+        -webkit-filter: brightness(1.3);
+                filter: brightness(1.3); /* Brilla un 30% más */
+    }
+    
+    /* Vuelve a su estado inicial para el bucle perfecto */
+    100% {
+        -webkit-transform: translate(-50%, -50%) scale(1) translateY(0) rotate(0deg);
+                transform: translate(-50%, -50%) scale(1) translateY(0) rotate(0deg);
+        -webkit-filter: brightness(1);
+                filter: brightness(1);
     }
 }
 
@@ -751,7 +904,9 @@ footer {
     
     /* El secreto del centrado absoluto: */
     /* Este translate(-50%, -50%) la centra exactamente en el punto top:50%, left:50% */
-    transform: translate(-50%, -50%); 
+    -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%); 
     
     /* Define un tamaño base para el área de la mascota */
     width: 400px; /* Ajusta este valor al tamaño que quieras en escritorio */
@@ -766,12 +921,16 @@ footer {
     position: absolute; /* Para que la animación de transform funcione bien */
     width: 100%; /* Ocupa todo el contenedor boomyhero-container */
     height: auto;
-    object-fit: contain; /* No se deforma */
-    transform-origin: center center; /* El punto de origen del giro es el centro */
+    -o-object-fit: contain;
+       object-fit: contain; /* No se deforma */
+    -webkit-transform-origin: center center;
+        -ms-transform-origin: center center;
+            transform-origin: center center; /* El punto de origen del giro es el centro */
     
     /* --- AQUÍ LA MAGIA DE LA ANIMACIÓN --- */
     /* Llamamos a la animación definida arriba. Dura 5s, es suave, bucle infinito */
-    animation: boomyheroDynamic 5s ease-in-out infinite; 
+    -webkit-animation: boomyheroDynamic 5s ease-in-out infinite;
+            animation: boomyheroDynamic 5s ease-in-out infinite; 
 }
 
 /* =========================================

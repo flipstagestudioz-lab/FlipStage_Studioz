@@ -166,11 +166,11 @@ header {
 }
 
 .dropdown-menu .dropdown-item {
-  color: #F5F8FE !important; 
+  color: #F5F8FE !important;
   transition: all 0.3s ease;
-  font-family: 'Devant Horgen';
-  font-size: 26px; 
-  letter-spacing: 1px; 
+   font-family: 'VendSans', sans-serif;
+  font-weight: 800;
+  font-size: 16px;
   padding-top: 8px;
   padding-bottom: 8px;
   /* ESTA ES LA MAGIA: Ajusta la altura de la caja a la letra real */

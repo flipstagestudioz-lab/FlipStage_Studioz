@@ -245,6 +245,7 @@ body.background-image > header {
   position: relative;
   z-index: 10 !important;
  margin-left: 230px !important;
+   padding-left: 130px !important;
 }
 
 /* El logo a la izquierda */

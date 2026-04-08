@@ -168,8 +168,9 @@ header {
 .dropdown-menu .dropdown-item {
   color: #F5F8FE !important;
   transition: all 0.3s ease;
- font-family: 'VendSans', sans-serif;
+   font-family: 'VendSans', sans-serif;
   font-weight: 800;
+  font-size: 16px;
   padding-top: 8px;
   padding-bottom: 8px;
   /* ESTA ES LA MAGIA: Ajusta la altura de la caja a la letra real */
@@ -496,12 +497,8 @@ footer {
 
 .footer-icon {
   height: 3vh;
-  transition: filter 0.3s ease;
 }
 
-.footer-icon:hover {
-  filter: brightness(0) saturate(100%) invert(86%) sepia(16%) saturate(2465%) hue-rotate(18deg) brightness(102%) contrast(92%);
-}
 
 
 @media (max-width: 768px) {
@@ -777,6 +774,10 @@ footer {
     animation: boomyheroDynamic 5s ease-in-out infinite; 
 }
 
+/* =========================================
+   VERSIÓN MÓVIL (Responsivo)
+   ========================================= */
+@media (max-width: 768px) {
     .boomyhero-container {
         /* Hacemos la mascota un poco más pequeña en móviles */
         width: 120px;
@@ -785,9 +786,4 @@ footer {
         top: 60%; 
          left: 45%; 
     }
-footer {
-  background-color:#E5EA26;
-  color: #1D1D1B;
-  font-family: 'VendSans', sans-serif;
-  font-weight: 700;
 }

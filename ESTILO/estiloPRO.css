@@ -1,0 +1,1033 @@
+@font-face {
+  font-family: 'Devant Horgen';
+  src: url('../font/Devant Horgen.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'VendSans';
+  src: url('../font/VendSans-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'VendSans';
+  src: url('../font/VendSans-LightItalic.ttf') format('truetype');
+  font-weight: 300;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'VendSans';
+  src: url('../font/VendSans-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'VendSans';
+  src: url('../font/VendSans-Italic.ttf') format('truetype');
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'VendSans';
+  src: url('../font/VendSans-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'VendSans';
+  src: url('../font/VendSans-MediumItalic.ttf') format('truetype');
+  font-weight: 500;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'VendSans';
+  src: url('../font/VendSans-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'VendSans';
+  src: url('../font/VendSans-SemiBoldItalic.ttf') format('truetype');
+  font-weight: 600;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'VendSans';
+  src: url('../font/VendSans-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'VendSans';
+  src: url('../font/VendSans-BoldItalic.ttf') format('truetype');
+  font-weight: 700;
+  font-style: italic;
+}
+
+body,
+html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: auto;
+  font-family: 'VendSans', sans-serif;
+  font-weight: 400;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  flex: 1;
+}
+
+.background-image {
+  background-image: url('../imagenes/fondo.webp');
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: 100% auto;
+  background-attachment: scroll;
+  width: 100%;
+  display: block;
+}
+
+.background-image>* {
+  position: relative;
+  z-index: 0;
+}
+
+body.background-image > header {
+  position: relative !important;
+  z-index: 999999 !important;
+}
+
+.navbar {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  position: relative;
+  z-index: 1050;
+}
+
+/* 3. Aseguramos que la caja del dropdown pueda salirse del Header sin ser cortada */
+header {
+  position: relative;
+  z-index: 999999;
+}
+body.background-image > header {
+  position: relative !important;
+  z-index: 999999 !important;
+}
+
+
+.navbar {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  position: relative;
+  z-index: 1050;
+  margin-right: 10vw; 
+    position: relative;
+  z-index: 9999999;
+}
+
+.navbar-brand {
+  padding: 0; 
+  margin-right: 30px;
+  /* Magia aquí: Usamos vw para que siga al HOLA en cualquier pantalla */
+  margin-left: 10vw; /* OJO: Si necesitas que vaya más a la izq o der, sube o baja este número (ej. 6vw o 10vw) */
+}
+
+
+.navbar-brand img {
+  height: 50px;
+  width: auto;
+  object-fit: contain;
+}
+
+.navbar-nav .nav-link {
+  font-family: 'VendSans', sans-serif;
+  font-weight: 800;
+  color: #1D1D1B !important;
+  font-size: 1 rem;
+  transition: color 0.3s ease;
+  text-align: center;
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link:focus {
+  color: #7B29FC !important;
+}
+
+.dropdown-menu {
+  background-color: rgba(29, 29, 27, 0.95);
+  border: 1px solid #7B29FC;
+  z-index: 1051;
+}
+
+.dropdown-menu .dropdown-item {
+  color: #F5F8FE !important;
+  transition: all 0.3s ease;
+  font-family: 'Devant Horgen';
+  font-size: 26px;
+  letter-spacing: 1px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  /* ESTA ES LA MAGIA: Ajusta la altura de la caja a la letra real */
+  line-height: 0.8;
+  display: block;
+}
+
+.dropdown-menu .dropdown-item:hover,
+.dropdown-menu .dropdown-item:focus {
+  background-color: transparent !important;
+/* Fórmula recalibrada con precisión para dar exactamente el morado #7B29FC */
+  filter: brightness(0) saturate(100%) invert(28%) sepia(94%) saturate(5479%) hue-rotate(259deg) brightness(98%) contrast(107%);
+}
+
+
+.social-icons a img {
+  height: 3vh;
+  transition: filter 0.3s ease;
+}
+
+.social-icons a:hover img {
+  /* Fórmula recalibrada con precisión para dar exactamente el morado #7B29FC */
+  filter: brightness(0) saturate(100%) invert(28%) sepia(94%) saturate(5479%) hue-rotate(259deg) brightness(98%) contrast(107%);
+}
+
+.adventure-hero {
+  background-image: url('../imagenes/NEGROV2.webp');
+  background-size: 100%; /* Estira la imagen para que la diagonal no se rompa */
+  background-position: center bottom;
+  background-repeat: no-repeat;
+ pointer-events: auto !important; 
+  z-index: 1 !important;
+  top: 0 !important; 
+  
+  padding-top: 100px; /* Aire arriba del logo */
+  padding-bottom: 25vw; /* MUCHO espacio abajo para que el carrusel se pueda montar */
+  
+  position: relative;
+
+}
+
+/* Forzamos a que el texto sobre el fondo negro sea blanco */
+.adventure-text, 
+.adventure-text p {
+  color: #F5F8FE !important;
+  max-width: 600px;
+  
+}
+
+.adventure-flip {
+ text-transform: uppercase;
+}
+
+
+
+
+.adventure-content {
+  display: flex;
+  flex-direction: row; /* Logo a la izquierda, Texto a la derecha en PC */
+  align-items: center; /* Los centra perfectamente a la misma altura */
+  justify-content: center;
+  max-width: 1300px;
+  gap: 6rem; /* Separación amplia para que no se vea apretado */
+  z-index: 10;
+  margin: 0 auto;
+  pointer-events: auto !important; 
+  position: relative;
+  z-index: 10 !important;
+}
+
+/* El logo a la izquierda */
+.adventure-logo img {
+  width: 35vw; /* Tamaño dinámico que se adapta al monitor */
+  max-width: 900px;
+  animation: float 4s ease-in-out infinite;
+}
+
+/* El texto a la derecha */
+.adventure-text {
+  max-width: 600px;
+  text-align: left; /* Alineamos el texto a la izquierda para mejor lectura */
+  color: #F5F8FE !important;
+}
+
+.adventure-text h1 {
+  font-family: 'Devant Horgen';
+  font-size: 5rem;
+  margin-bottom: 1rem;
+  color: #F5F8FE !important;
+}
+
+.adventure-text h1 span {
+  color: #7B29FC; /* Coral */
+  font-weight: bold;
+}
+
+.adventure-text p {
+  font-size: 1.2rem !important;
+  margin-bottom: 1.5rem; 
+  line-height: 1.6;
+}
+
+.slogan {
+  font-weight: bold;
+  font-size: 2rem !important;
+  color: #E5EA26; /* Amarillo */
+}
+
+.cta-button {
+  display: inline-block;
+  background-color: #7B29FC; 
+  color: white;
+  padding: 1rem 3rem; 
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-decoration: none;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  animation: popIn 1.2s ease forwards;
+  margin-top: 1.5rem; 
+}
+
+.cta-button:hover {
+  background-color: #1D1D1B;
+  color: #F5F8FE;
+  transform: scale(1.05);
+}
+
+@keyframes fadeInBounce {
+  0% {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+
+  60% {
+    transform: translateY(10px);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes popIn {
+  0% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+
+
+/* =========================================
+   CARRUSEL 3D (5 Tarjetas, Verticales con Marco)
+   ========================================= */
+.portfolio-3d-section {
+  width: 100%;
+  overflow: hidden; 
+  margin-top: -18vw; 
+  position: relative;
+  z-index: 1; 
+  padding-top: 0 !important;
+}
+
+.portfolio-3d-section .trabajos {
+  display: none; 
+}
+
+.carousel-3d-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 1200px; /* Ancho suficiente para el abanico */
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  perspective: 1200px; 
+  height: 60vh; 
+  min-height: 500px; /* Un poco más de altura mínima para las tarjetas verticales */
+}
+
+/* --- DE VUELTA AL FORMATO VERTICAL --- */
+.carousel-3d-track {
+  position: relative;
+  width: 320px;  /* Más angosto */
+  height: 480px; /* Más alto */
+  transform-style: preserve-3d;
+}
+
+/* La tarjeta base */
+.item-3d {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.6s ease, z-index 0s;
+  opacity: 0; 
+  pointer-events: none; 
+}
+
+/* --- DE VUELTA AL MARCO RECTO BLANCO --- */
+.item-3d img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border: 15px solid white; /* Regresa el marco grueso */
+  border-radius: 0px; /* Quitamos las curvas */
+  background-color: #000;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.8); /* Sombra dramática hacia abajo */
+  cursor: pointer;
+}
+
+/* =========================================
+   POSICIONES DEL ABANICO (Ajustadas para vertical)
+   ========================================= */
+
+/* 1. CENTRAL (Enfrente) */
+.item-3d.active {
+  transform: translateX(0) translateZ(100px) rotateY(0deg) scale(1);
+  opacity: 1;
+  z-index: 10;
+  pointer-events: auto; 
+}
+
+/* 2. LATERALES PRIMARIAS */
+/* Tienen un translateX mayor (-55%) para que dejen ver más el marco de la tarjeta central */
+.item-3d.prev {
+  transform: translateX(-55%) translateZ(0px) rotateY(25deg) scale(0.85);
+  opacity: 1;
+  z-index: 5;
+  pointer-events: auto; 
+}
+
+.item-3d.next {
+  transform: translateX(55%) translateZ(0px) rotateY(-25deg) scale(0.85);
+  opacity: 1;
+  z-index: 5;
+  pointer-events: auto; 
+}
+
+/* 3. LATERALES SECUNDARIAS (Al fondo) */
+.item-3d.prev-2 {
+  transform: translateX(-95%) translateZ(-100px) rotateY(35deg) scale(0.7);
+  opacity: 0.9;
+  z-index: 3;
+  pointer-events: auto; 
+}
+
+.item-3d.next-2 {
+  transform: translateX(95%) translateZ(-100px) rotateY(-35deg) scale(0.7);
+  opacity: 0.9;
+  z-index: 3;
+  pointer-events: auto; 
+}
+
+/* --- FLECHAS --- */
+.btn-3d {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  z-index: 20;
+  cursor: pointer;
+  padding: 10px;
+  transition: transform 0.2s ease;
+}
+
+/* Flechas Blancas para contrastar con el fondo oscuro si tocan ahí */
+.btn-3d img {
+  width: 4vw; 
+  min-width: 30px;
+  max-width: 50px;
+ /* Fórmula recalibrada con precisión para dar exactamente el morado #7B29FC */
+  filter: brightness(0) saturate(100%) invert(28%) sepia(94%) saturate(5479%) hue-rotate(259deg) brightness(98%) contrast(107%);
+}
+
+.btn-3d:hover {
+  transform: translateY(-50%) scale(1.2);
+}
+
+.prev-3d { left: 2%; }
+.next-3d { right: 2%; }
+
+
+.footer {
+  background-color: transparent;
+  color: #1D1D1B;
+  font-family: 'VendSans', sans-serif;
+  font-weight: 700;
+}
+
+.footer-logo {
+  height: 6vh;
+  width: auto;
+}
+
+.footer-icon {
+  height: 3vh;
+  transition: filter 0.3s ease;
+}
+
+.footer-icon:hover {
+/* Fórmula recalibrada con precisión para dar exactamente el morado #7B29FC */
+  filter: brightness(0) saturate(100%) invert(28%) sepia(94%) saturate(5479%) hue-rotate(259deg) brightness(98%) contrast(107%);
+}
+
+
+/* =========================================
+   BOTÓN IMAGEN (COTIZA CON NOSOTROS)
+   ========================================= */
+#cotiza-seccion {
+  
+  /* --- MUCHO AIRE (Espaciado) --- */
+  padding: 100px 20px !important; 
+  /* ----------------------------- */
+  
+  margin-top: 60px; /* Separación drástica de la sección blanca anterior */
+  position: relative;
+  z-index: 1;
+}
+
+.cotiza-container-final {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centrado horizontal total */
+  gap: 30px; /* Espacio automático entre cada elemento de la caja */
+}
+
+/* 1. Imagen del Título (BUSCA.webp) */
+.cotiza-titulo-img {
+width: 100%; /* Ahora ocupa el 100% de su columna en lugar de usar vw */
+  max-width: 550px; 
+  height: auto;
+  /* Fórmula recalibrada con precisión para dar exactamente el morado #7B29FC */
+  filter: brightness(0) saturate(100%) invert(28%) sepia(94%) saturate(5479%) hue-rotate(259deg) brightness(98%) contrast(107%);
+}
+
+/* 2. Texto descriptivo */
+.cotiza-desc-text {
+ font-family: 'VendSans', sans-serif;
+  font-size: 1.2rem;
+  color: #1D1D1B; 
+  max-width: 600px; 
+  line-height: 1.6;
+}
+
+/* 3. Botón de Cotizar (Estilos Finales) */
+.cotiza-btn-wrapper {
+  display: inline-block;
+  margin-top: 20px; /* Más aire arriba del botón */
+  transition: transform 0.3s ease;
+}
+
+/* Reemplaza cualquier regla .cotiza-btn img anterior por esta */
+.cotiza-btn-img-final {
+  /* Tamaño adaptable */
+  width: 30vw; 
+  min-width: 250px;
+  max-width: 400px;
+  height: auto;
+filter: brightness(0) saturate(100%) invert(8%) sepia(4%) saturate(4173%) hue-rotate(202deg) brightness(94%) contrast(92%);
+
+}
+
+.cotiza-btn-wrapper:hover .cotiza-btn-img-final {
+  transform: scale(1.05); /* El pequeño salto hacia adelante */
+  
+/* Fórmula recalibrada con precisión para dar exactamente el morado #7B29FC */
+  filter: brightness(0) saturate(100%) invert(28%) sepia(94%) saturate(5479%) hue-rotate(259deg) brightness(98%) contrast(107%);
+}
+.cotiza-btn img {
+  /* Tamaño adaptable con límites para que no se vea ni microscópico ni gigante */
+  width: 30vw; 
+  min-width: 250px;
+  max-width: 450px;
+  
+  /* Agregamos el estado base del filtro aquí */
+  transition: filter 0.3s ease, transform 0.3s ease;
+  
+  /* -----------------------------------------------------------
+     ESTADO BASE: Convertir a tono oscuro #1D1D1B
+     (Fórmula exacta partiendo de una imagen blanca)
+     ----------------------------------------------------------- */
+  filter: brightness(0) saturate(100%) invert(10%) sepia(5%) saturate(500%) hue-rotate(200deg) brightness(95%) contrast(90%);
+}
+
+/* El efecto al pasar el mouse (Hover) */
+.cotiza-btn:hover img {
+  transform: scale(1.05); /* Pequeño salto hacia adelante */
+  
+/* Fórmula recalibrada con precisión para dar exactamente el morado #7B29FC */
+  filter: brightness(0) saturate(100%) invert(28%) sepia(94%) saturate(5479%) hue-rotate(259deg) brightness(98%) contrast(107%);
+}
+
+
+/* =========================================
+   NUEVO ESTILO GEOMÉTRICO (Bordes Rectos)
+   ========================================= */
+
+#precios {
+  background-color: transparent;
+  padding: 80px 0 !important;
+}
+
+.planes {
+  color: #1D1D1B;
+  font-family: 'VendSans', sans-serif;
+  font-weight: 800;
+  font-size: 3.5rem;
+}
+.suscripciones-img {
+  width: 70vw; /* Se adapta al ancho de la pantalla */
+  max-width: 650px; /* Límite máximo para que no se vea gigante en PC */
+  height: auto;
+  transition: transform 0.3s ease;
+  /* Fórmula recalibrada con precisión para dar exactamente el morado #7B29FC */
+  filter: brightness(0) saturate(100%) invert(28%) sepia(94%) saturate(5479%) hue-rotate(259deg) brightness(98%) contrast(107%);
+}
+
+/* Opcional: un pequeño efecto al pasar el mouse por el título */
+.suscripciones-img:hover {
+  transform: scale(1.02);
+}
+
+.card-body-v2 {
+  display: flex;
+  flex-direction: column;
+  height: 80%; /* Ocupa todo el alto disponible de la tarjeta */
+}
+
+
+/* -------------------------------------------
+   ESPACIADOS DE TEXTOS Y LISTAS (Más "aire")
+   ------------------------------------------- */
+.category-tag {
+  color: #7B29FC;
+  font-weight: 700;
+  font-size: 0.9rem;
+  letter-spacing: 2px;
+  margin-bottom: 20px !important; /* Aire debajo de la etiqueta */
+}
+
+.plan-title {
+  font-family: 'Devant Horgen';
+  color: #1D1D1B;
+  font-size: 3.5rem; /* Título con más presencia */
+  margin-bottom: 40px !important; /* Separación drástica entre título y lista */
+  line-height: 1;
+}
+
+.features-list {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 40px !important; 
+}
+
+.features-list li {
+  font-family: 'VendSans', sans-serif;
+  font-size: 1.1rem;
+  color: #555; /* Gris oscuro para lectura cómoda */
+  margin-bottom: 25px !important; /* ¡Mucho más aire entre cada punto de la lista! */
+  position: relative;
+  padding-left: 35px; /* Más espacio entre el checkmark y el texto */
+  line-height: 1.4;
+}
+
+/* El color de texto de la lista para la tarjeta negra */
+.pricing-card-v2.featured .features-list li {
+  color: #e0e0e0 !important; /* Gris claro para que no se pierda en el negro */
+}
+
+/* Checkmarks personalizados en color rojo coral */
+.features-list li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #7B29FC;
+  font-weight: bold;
+  font-size: 1.3rem;
+}
+
+/* -------------------------------------------
+   LA TARJETA BASE (Lados rectos)
+   ------------------------------------------- */
+.pricing-card-v2 {
+  background-color: #F5F8FE; /* Fondo crema/blanco */
+  border-radius: 0px !important; /* Bordes de la tarjeta 100% rectos */
+  border: 3px solid #7B29FC !important; /* Marco Rosa visible SÓLO para las blancas */
+  
+  /* --- CAMBIO 1: Más rectangulares (altas) --- */
+  padding: 50px 30px 40px; 
+  min-height: 550px; /* Fuerza a que la tarjeta sea larga verticalmente */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Empuja el contenido arriba y el botón hasta abajo */
+  /* ------------------------------------------ */
+
+  position: relative;
+  
+  /* --- CAMBIO 2: Sombra mucho más pronunciada --- */
+  box-shadow: 15px 20px 40px rgba(0, 0, 0, 0.18) !important; 
+  /* ---------------------------------------------- */
+  
+  transition: all 0.4s ease;
+  height: 80%;
+  margin-top: 20px;
+}
+
+/* El banderín del precio (Se mantiene intacto) */
+.price-tag {
+  position: absolute;
+  top: 0px; 
+  right: 25px;
+  background-color: #7B29FC; 
+  color: white;
+  padding: 15px 10px 25px;
+  font-family: 'VendSans', sans-serif;
+  font-weight: 800;
+  font-size: 1.4rem;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 85%, 0 100%);
+  box-shadow: 0 5px 15px rgba(255, 89, 100, 0.4);
+  z-index: 5;
+}
+
+.pricing-card-v2:hover {
+  transform: translateY(-10px); 
+  box-shadow: 15px 25px 50px rgba(0, 0, 0, 0.25) !important; /* La sombra crece al pasar el mouse */
+}
+
+/* -------------------------------------------
+   TARJETA DESTACADA (Negra, SIN marco)
+   ------------------------------------------- */
+.pricing-card-v2.featured {
+  background-color: #1D1D1B; /* Tarjeta negra central */
+  
+  /* --- CAMBIO 3: Garantizamos que la negra NO tenga marco --- */
+  border: none !important; 
+  /* --------------------------------------------------------- */
+  
+  transform: scale(1.05);
+  
+  /* Sombra oscura y dramática para que resalte aún más */
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4) !important; 
+}
+
+/* Textos internos destacados */
+.pricing-card-v2.featured .plan-title,
+.pricing-card-v2.featured .features-list li,
+.pricing-card-v2.featured .category-tag {
+  color: #F5F8FE !important;
+}
+
+.pricing-card-v2.featured:hover {
+  transform: scale(1.08) translateY(-5px);
+  box-shadow: 0 35px 70px rgba(0, 0, 0, 0.5) !important;
+}
+
+.btn-adventure {
+  display: block;
+  background-color: #7B29FC;
+  color: white;
+  text-align: center;
+  padding: 16px; /* Botón un poco más alto/grueso */
+
+  text-decoration: none;
+  font-weight: 800;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+  width: 100%;
+  
+  /* --- ESTO EMPUJA EL BOTÓN HASTA ABAJO --- */
+  margin-top: auto !important; 
+  /* ---------------------------------------- */
+}
+
+.btn-adventure:hover {
+  background-color: #1D1D1B;
+  color: #F5F8FE;
+}
+
+.featured .btn-adventure {
+  background-color: #F5F8FE;
+  color: #1D1D1B;
+}
+
+.featured .btn-adventure:hover {
+  background-color: #7B29FC;
+  color: white;
+}
+
+
+.fade-in-on-scroll {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 3s ease-out, transform 4s ease-out;
+}
+
+.fade-in-on-scroll.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+
+
+
+@media (max-width: 786px) {
+
+
+ header, .navbar {
+        background-color: #ffffff !important;
+        /* Opcional: Una sombra sutil para separar del héroe oscuro */
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1) !important;
+    }
+
+    /* Aseguramos que la caja colapsable (donde caen los enlaces) también sea blanca */
+    .navbar-collapse {
+        background-color: #ffffff !important;
+        padding-bottom: 20px; /* Un poco de aire abajo */
+    }
+
+    /* 2. Textos de los enlaces en NEGRO (#1D1D1B) */
+    /* (Obligatorio para que se lean sobre el fondo blanco) */
+    .navbar-nav .nav-link {
+        color: #1D1D1B !important;
+        text-align: center; /* Centramos los enlaces en móvil */
+        padding-top: 15px !important;
+        padding-bottom: 15px !important;
+        font-weight: 900 !important;
+    }
+
+    /* Estilo para el enlace activo/hover en móvil */
+    .navbar-nav .nav-link:hover,
+    .navbar-nav .nav-link.active {
+        color: #1D1D1B !important; /* Tu rosa coral para el hover */
+    }
+
+    /* 3. El ícono Toggler (las 3 líneas) en NEGRO */
+    /* Bootstrap usa un SVG de fondo. Necesitamos sobreescribir el color del trazo (stroke) al NEGRO #1D1D1B codificado (%231D1D1B) */
+    .navbar-dark .navbar-toggler-icon {
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%231D1D1B' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+    }
+
+    /* Opcional: El borde del botón toggler en negro muy sutil */
+    .navbar-toggler {
+        border-color: rgba(29, 29, 27, 0.1) !important;
+    }
+
+  .social-icons {
+    justify-content: center !important;
+  }
+
+  .social-icons a img {
+    height: 24px;
+    margin: 5px;
+  }
+
+  .navbar-nav .nav-link {
+    font-size: 1.1rem;
+  }
+
+  .overlay-text h1 {
+    font-size: 1.2rem;
+  }
+
+
+/* 1. Arreglamos el fondo negro para que cubra todo a lo alto en móvil */
+  .adventure-hero {
+    background-size: cover !important; 
+    background-position: center top !important; 
+    padding-top: 15vh; 
+    padding-bottom: 250px; 
+  }
+
+  /* 2. Apilamos los elementos y reducimos espacios */
+  .adventure-content {
+    flex-direction: column; 
+    align-items: center;
+    margin-top: 0;
+    gap: 1rem; 
+  }
+  
+  .adventure-logo {
+    margin-top: 0;
+    justify-content: center;
+  }
+  
+  /* 3. Ajustamos el logo */
+  .adventure-logo img {
+    transform: rotate(0deg); 
+    width: 80vw;
+    max-width: 300px; 
+  }
+  
+  /* 4. Rescatamos el texto para que no se salga de lo negro */
+  .adventure-text {
+    margin-top: 1rem !important; /* Quitamos el empujón hacia abajo de la PC */
+    text-align: center; 
+    padding: 0 15px; 
+  }
+  
+  .adventure-text h1 {
+    font-size: 4rem; 
+    line-height: 1;
+  }
+  
+  .slogan {
+    font-size: 1.6rem !important;
+  }
+  
+  .cta-button {
+    margin-top: 1rem;
+    padding: 1rem 2.5rem; 
+  }
+
+
+
+
+
+.suscripciones-img {
+    width: 90vw; /* Un poco más grande en móviles para que destaque */
+    margin-bottom: 15px;
+
+ }
+  .carousel-3d-track {
+    width: 220px;
+    height: 330px;
+  }
+  .item-3d.prev { transform: translateX(-50%) translateZ(-50px) rotateY(30deg) scale(0.8); }
+  .item-3d.next { transform: translateX(50%) translateZ(-50px) rotateY(-30deg) scale(0.8); }
+  /* En móvil escondemos las secundarias para no hacer un desastre visual en pantallas pequeñas */
+  .item-3d.prev-2, .item-3d.next-2 { opacity: 0; pointer-events: none; }
+
+  #cotiza-seccion {
+    padding: 60px 20px !important; /* Menos relleno en móvil */
+  }
+  
+  .cotiza-titulo-img {
+    width: 85vw; /* Título más grande en pantallas pequeñas */
+  }
+  
+  .cotiza-desc-text {
+    font-size: 1rem;
+    padding: 0 10px;
+  }
+  
+  .cotiza-btn-img-final {
+    width: 60vw; /* Botón más grande en móvil */
+  }
+/* 1. Reducimos el tamaño de los títulos principales */
+  .planes {
+    font-size: 2.5rem; 
+  }
+
+ /* 1. Tarjeta base mucho más compacta (menos relleno) */
+  .pricing-card-v2 {
+    min-height: auto !important; 
+    padding: 30px 20px 25px !important; /* Quitamos mucho "aire" de arriba y abajo */
+    margin-bottom: 15px !important; 
+  }
+
+  /* 2. El banderín del precio más discreto */
+  .price-tag {
+    font-size: 1.1rem !important;
+    padding: 10px 10px 18px !important;
+    right: 15px !important; 
+  }
+
+  /* 3. Textos superiores más pequeños */
+  .category-tag {
+    font-size: 0.8rem !important;
+    margin-bottom: 10px !important;
+  }
+
+  .plan-title {
+    font-size: 2.2rem !important; /* Título mucho más recogido */
+    margin-bottom: 15px !important; 
+  }
+
+  /* 4. Lista de características más apretada */
+  .features-list {
+    margin-bottom: 25px !important;
+  }
+
+  .features-list li {
+    font-size: 0.95rem !important; /* Letra un pelín más pequeña */
+    margin-bottom: 12px !important; /* Mucho menos espacio entre cada punto */
+    padding-left: 28px !important; /* Acercamos la palomita (✓) al texto */
+    line-height: 1.2 !important;
+  }
+
+  /* La palomita (✓) proporcional al nuevo texto */
+  .features-list li::before {
+    font-size: 1.1rem !important;
+  }
+
+  /* 5. Botón más estilizado y menos grueso */
+  .btn-adventure {
+    padding: 12px !important;
+    font-size: 1rem !important;
+  }
+
+  /* 6. Control absoluto de la tarjeta negra */
+  .pricing-card-v2.featured {
+    transform: scale(1) !important; 
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25) !important; /* Sombra más suave */
+  }
+
+  .pricing-card-v2.featured:hover {
+    transform: translateY(-3px) !important;
+  }
+  @keyframes levitarMovil {
+    0% {
+      transform: translateY(0);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+    }
+    50% {
+      transform: translateY(-8px); /* Sube ligeramente */
+      box-shadow: 0 18px 35px rgba(255, 89, 100, 0.3); /* La sombra se pinta de tu rosa coral */
+    }
+    100% {
+      transform: translateY(0);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+    }
+  }
+
+  /* Reemplazamos la regla anterior de la tarjeta negra por esta para inyectar la animación */
+  .pricing-card-v2.featured {
+    transform: scale(1) !important; 
+    /* La animación dura 3.5 segundos y se repite infinitamente */
+    animation: levitarMovil 3.5s ease-in-out infinite !important; 
+  }
+
+}

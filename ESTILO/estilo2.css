@@ -1,0 +1,383 @@
+@font-face {
+  font-family: 'Devant Horgen';
+  src: url('../font/Devant Horgen.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'VendSans';
+  src: url('../font/VendSans-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'VendSans';
+  src: url('../font/VendSans-LightItalic.ttf') format('truetype');
+  font-weight: 300;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'VendSans';
+  src: url('../font/VendSans-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'VendSans';
+  src: url('../font/VendSans-Italic.ttf') format('truetype');
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'VendSans';
+  src: url('../font/VendSans-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'VendSans';
+  src: url('../font/VendSans-MediumItalic.ttf') format('truetype');
+  font-weight: 500;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'VendSans';
+  src: url('../font/VendSans-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'VendSans';
+  src: url('../font/VendSans-SemiBoldItalic.ttf') format('truetype');
+  font-weight: 600;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'VendSans';
+  src: url('../font/VendSans-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'VendSans';
+  src: url('../font/VendSans-BoldItalic.ttf') format('truetype');
+  font-weight: 700;
+  font-style: italic;
+}
+
+body,
+html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: auto;
+  font-family: 'VendSans', sans-serif;
+  font-weight: 400;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  flex: 1;
+}
+
+.background-image {
+  background-image: url('../imagenes/fondonegro.webp');
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: 100% auto;
+  background-attachment: scroll;
+  width: 100%;
+  display: block;
+}
+
+.background-image>* {
+  position: relative;
+  z-index: 0;
+}
+
+header {
+  position: relative !important;
+  z-index: 99999 !important; /* Ahora sí, nada le gana al header */
+}
+
+.navbar {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  position: relative; 
+  z-index: 1050; 
+  }
+
+
+
+.navbar-brand {
+  padding: 0; 
+  margin-right: 30px;
+  margin-left: 10px; 
+}
+
+.navbar-brand img {
+  height: 50px; 
+  width: auto;
+  object-fit: contain; 
+}
+
+.navbar-nav .nav-link {
+  font-family: 'VendSans', sans-serif;
+  font-weight: 800;
+  color: #F5F8FE !important;
+  font-size: 1 rem;
+  transition: color 0.3s ease;
+  text-align: center;
+}
+
+.navbar-nav .nav-link {
+  font-family: 'VendSans', sans-serif;
+  font-weight: 800;
+  color: #F5F8FE !important;
+  font-size: 1.2rem;
+  transition: color 0.3s ease;
+  text-align: center;
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link:focus {
+  color: #E5EA26 !important;
+  
+}
+
+.navbar-nav .nav-item.dropdown {
+  position: relative !important;
+}
+
+.dropdown-menu {
+  background-color: rgba(29, 29, 27, 0.95); 
+  border: 1px solid #01AEB5; 
+  /* Aseguramos que siempre esté en la capa más alta */
+  z-index: 9999 !important; 
+}
+
+.dropdown-menu .dropdown-item {
+  color: #F5F8FE !important; 
+  transition: all 0.3s ease;
+  font-family: 'Devant Horgen';
+  font-size: 26px; 
+  letter-spacing: 1px; 
+  padding-top: 8px;
+  padding-bottom: 8px;
+  /* ESTA ES LA MAGIA: Ajusta la altura de la caja a la letra real */
+  line-height: 0.8; 
+  display: block;
+}
+.dropdown-menu .dropdown-item:hover,
+.dropdown-menu .dropdown-item:focus {
+  color: #E5EA26 !important;
+  background-color: transparent !important; 
+}
+
+.navbar-toggler {
+  border: none;
+}
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='%23F5F8FE' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+.social-icons a img {
+  height: 3vh;
+  transition: filter 0.3s ease;
+}
+
+.social-icons a:hover img {
+  filter: brightness(0) invert(64%) sepia(91%) saturate(516%) hue-rotate(23deg) brightness(99%) contrast(101%);
+}
+
+#contacto {
+  min-height: 100vh; 
+  background-image: url('../imagenes/contactos_ilust.webp');
+  background-repeat: no-repeat;
+  background-position: center center; /* Mantiene la imagen centrada */
+  
+  /* LA MAGIA AQUÍ: Ancho automático (sangrado), Alto al 100% (sin corte vertical) */
+  background-size: auto 100%; 
+
+  
+  padding-top: 50px !important; 
+  padding-bottom: 80px !important;
+  margin-right: 0;
+  margin-bottom: 0;
+  margin-top: 0 !important; 
+  margin-bottom: 20vh;
+  position: relative;
+  z-index: 1; 
+}
+
+/* Título Amarillo Marca */
+.custom-title {
+  color: #E5EA26 !important;
+  font-family: 'VendSans', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 2.5rem;
+}
+
+.custom-form {
+  max-width: 500px !important;
+  position: relative;
+  z-index: 10;
+}
+
+/* Etiquetas del formulario */
+.custom-label {
+  color: #E5EA26 !important;
+  font-family: 'VendSans', sans-serif;
+  font-weight: 700;
+  margin-left: 15px;
+}
+
+/* Inputs y Textarea Estilizados */
+.custom-input, .custom-textarea {
+  background-color: rgba(29, 29, 27, 0.8) !important; /* Fondo oscuro semi-transparente */
+  border: 1px solid #444 !important;
+  color: #F5F8FE !important;
+  padding: 12px 20px !important;
+}
+
+
+.custom-input:focus, .custom-textarea:focus {
+  border-color: #E5EA26 !important;
+  box-shadow: 0 0 10px rgba(229, 234, 38, 0.3) !important;
+  outline: none;
+}
+
+/* Botón Amarillo Flipstage */
+.btn-brand-yellow {
+  background-color: #E5EA26 !important;
+  color: #1D1D1B !important;
+  font-family: 'VendSans', sans-serif;
+  font-weight: 800;
+
+  padding: 12px 40px !important;
+  border: none !important;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+}
+
+.btn-brand-yellow:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(229, 234, 38, 0.4);
+  background-color: #f2f72b !important;
+}
+
+footer {
+  background-color: #01AEB5;
+  color: #1D1D1B;
+  font-family: 'VendSans', sans-serif;
+  font-weight: 700;
+}
+.footer-logo {
+  height: 6vh;
+  width: auto;
+}
+
+.footer-icon {
+  height: 3vh;
+  transition: filter 0.3s ease;
+}
+
+.footer-icon:hover {
+  filter: brightness(0) invert(64%) sepia(91%) saturate(516%) hue-rotate(23deg) brightness(99%) contrast(101%);
+}
+
+
+@media (max-width: 786px) {
+  body {
+    background-image: url('imagenes/fondonegro.webp');
+    background-position: top center;
+    background-attachment: scroll;
+    background-color: #1D1D1B;
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+  }
+
+  .navbar {
+    background-color: #1D1D1B;
+  }
+
+  .navbar-collapse {
+    text-align: center;
+    background-color: #1D1D1B;
+    padding: 5%;
+  }
+
+  .social-icons {
+    justify-content: center !important;
+  }
+
+  .social-icons a img {
+    height: 24px;
+    margin: 5px;
+  }
+
+  .navbar-nav .nav-link {
+    font-size: 1.1rem;
+  }
+  .dropdown-menu {
+    position: relative !important;  }
+
+  .overlay-text h1 {
+    font-size: 1.2rem;
+  }
+
+  #contacto {
+      background-image: url('../imagenes/MOVIL.webp');
+    /* Mantenemos tu regla de que se vea arriba y abajo, pero sangre a los lados */
+    background-size: auto 120%; 
+    background-position: center center;
+    
+    /* CLAVE: Aumentamos los paddings para empujar el formulario hacia el "área segura" del dibujo */
+    padding-top: 100px !important; 
+    padding-bottom: 150px !important;
+    padding-right: 10%;
+    min-height: auto; /* Dejamos que el contenido y el padding decidan la altura */
+    margin-bottom: 20vh; 
+  }
+
+  .custom-form {
+    /* Le damos margen a los lados para que no pegue con los bordes del teléfono */
+    width: 70% !important;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .custom-title {
+    /* Achicamos un poco el título y lo acercamos al formulario */
+    font-size: 1.5rem;
+    margin-bottom: 15px !important; 
+    margin-top: 0;
+  }
+
+  /* Reducimos los espacios (margins) entre los inputs para que todo el bloque sea menos alto */
+  .custom-form .mb-4 {
+    margin-bottom: 0.5rem !important;
+  }
+
+  /* Reducimos la altura del área del mensaje en móviles para ganar espacio */
+  .custom-textarea {
+    height: 70px !important;
+  }
+
+  /* Ajustamos el botón para que sea un poco más compacto */
+  .btn-brand-yellow {
+    padding: 10px 30px !important;
+    font-size: 0.7rem;
+  }
+}

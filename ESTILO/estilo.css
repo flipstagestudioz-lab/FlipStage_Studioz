@@ -1,0 +1,793 @@
+@font-face {
+  font-family: 'Devant Horgen';
+  src: url('../font/Devant Horgen.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'VendSans';
+  src: url('../font/VendSans-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'VendSans';
+  src: url('../font/VendSans-LightItalic.ttf') format('truetype');
+  font-weight: 300;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'VendSans';
+  src: url('../font/VendSans-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'VendSans';
+  src: url('../font/VendSans-Italic.ttf') format('truetype');
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'VendSans';
+  src: url('../font/VendSans-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'VendSans';
+  src: url('../font/VendSans-MediumItalic.ttf') format('truetype');
+  font-weight: 500;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'VendSans';
+  src: url('../font/VendSans-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'VendSans';
+  src: url('../font/VendSans-SemiBoldItalic.ttf') format('truetype');
+  font-weight: 600;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'VendSans';
+  src: url('../font/VendSans-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'VendSans';
+  src: url('../font/VendSans-BoldItalic.ttf') format('truetype');
+  font-weight: 700;
+  font-style: italic;
+}
+
+body,
+html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: auto;
+  font-family: 'VendSans', sans-serif;
+  font-weight: 400;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  flex: 1;
+}
+
+.background-image {
+  background-image: url('../imagenes/fondonegro.webp');
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: 100% auto;
+  background-attachment: scroll;
+  width: 100%;
+  display: block;
+}
+
+.background-image>* {
+  position: relative;
+  z-index: 0;
+}
+
+header {
+  position: relative;
+  z-index: 99999 !important;
+  /* El !important asegura que nada le gane */
+}
+
+
+/* =========================================
+   Barra de navegación
+   ========================================= */
+
+.navbar {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  position: relative;
+  z-index: 1050;
+  margin-right: 10vw; 
+}
+
+.navbar-brand {
+  padding: 0; 
+  margin-right: 30px;
+  /* Magia aquí: Usamos vw para que siga al HOLA en cualquier pantalla */
+  margin-left: 10vw; /* OJO: Si necesitas que vaya más a la izq o der, sube o baja este número (ej. 6vw o 10vw) */
+}
+
+.navbar-brand img {
+  height: 50px;
+  width: auto;
+  object-fit: contain;
+}
+
+.navbar-nav .nav-link {
+  font-family: 'VendSans', sans-serif;
+  font-weight: 800;
+  color: #F5F8FE !important;
+  font-size: 1 rem;
+  transition: color 0.3s ease;
+  text-align: center;
+}
+
+.navbar-nav .nav-link {
+  font-family: 'VendSans', sans-serif;
+  font-weight: 800;
+  color: #F5F8FE !important;
+  font-size: 1.2rem;
+  transition: color 0.3s ease;
+  text-align: center;
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link:focus {
+  filter: brightness(0) saturate(100%) invert(85%) sepia(20%) saturate(2500%) hue-rotate(5deg) brightness(105%) contrast(95%);
+}
+
+.dropdown-menu {
+  background-color: rgba(29, 29, 27, 0.95);
+  border: 1px solid #01AEB5;
+  z-index: 1051;
+}
+
+.dropdown-menu .dropdown-item {
+  color: #F5F8FE !important;
+  transition: all 0.3s ease;
+  font-family: 'Devant Horgen';
+  font-size: 26px;
+  letter-spacing: 1px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  /* ESTA ES LA MAGIA: Ajusta la altura de la caja a la letra real */
+  line-height: 0.8;
+  display: block;
+}
+
+.dropdown-menu .dropdown-item:hover,
+.dropdown-menu .dropdown-item:focus {
+  background-color: transparent !important;
+  filter: brightness(0) saturate(100%) invert(85%) sepia(20%) saturate(2500%) hue-rotate(5deg) brightness(105%) contrast(95%);
+}
+
+.navbar-toggler {
+  border: none;
+}
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='%23F5F8FE' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+.social-icons a img {
+  height: 3vh;
+  margin-right: 1vw; 
+  transition: filter 0.3s ease;
+}
+
+.social-icons a:hover img {
+filter: brightness(0) saturate(100%) invert(85%) sepia(20%) saturate(2500%) hue-rotate(5deg) brightness(105%) contrast(95%);
+}
+
+
+/* =========================================
+   SECCIÓN HERO (INICIO)
+   ========================================= */
+#inicio-hero {
+  width: 100%;
+  overflow-x: hidden; 
+  padding: 0 !important;
+}
+.img-principal {
+  width: 100%;
+  height: 90%;
+  display: block;
+  margin-left: 3vw;
+  margin-top: 0vw;
+  transform-origin: right center; 
+}
+
+.hero-text-overlay {
+  z-index: 2;
+  margin-left: 10vw; /* Mantén el número con el que alineaste tu logo */
+  
+  /* ESTA ES LA MAGIA: Forzamos que se despegue del fondo hacia abajo */
+  margin-bottom: 0 !important; /* Anulamos el mb-4 del HTML */
+  display: flex;             /* Coloca los elementos en una fila */
+  align-items: center;       /* Los centra verticalmente para que queden parejos */
+  gap: 2vw;                  /* Crea un espacio entre el texto y el botón (ajústalo a tu gusto) */
+
+}
+
+/* Estilos para el texto descriptivo */
+.hero-subtitle {
+  font-family: 'VendSans', sans-serif;
+  font-weight: 500;
+  font-size: 1.5vw; 
+  line-height: 1.2;
+  color: #F5F8FE; 
+  margin-bottom: 1vw; 
+  text-shadow: 0.15vw 0.15vw 0.4vw rgba(29, 29, 27, 0.7); 
+  margin-bottom: 0;
+}
+/* Tamaño controlado para la imagen de IMAGINACIÓN */
+.img-imaginacion {
+  max-width: 300px; /* Ajusta este valor dependiendo de qué tan grande la quieras */
+  height: auto;
+
+  transition: transform 0.3s ease;
+}
+
+/* Un pequeño efecto opcional al pasar el mouse por IMAGINACIÓN */
+.img-imaginacion:hover {
+  transform: scale(0.6);
+}
+
+
+/* =========================================
+   FRANJA CELESTE A SANGRE (FUERZA BRUTA)
+   ========================================= */
+#franja-imposible {
+  width: 100%;
+  padding-top: 10vW !important;
+   padding-bottom: 15vW !important;
+  margin: 0 !important;
+  overflow: hidden; 
+}
+
+.franja-img {
+  width: 350vw !important; 
+  height: auto;
+  display: block;
+}
+
+
+
+
+#servicios-seccion-final {
+  width: 100% !important;
+  background: transparent;
+  padding: 60px 0;
+  overflow: hidden;
+  position: relative;
+}
+
+.titulo-servicios-box {
+  width: 100% !important;
+  text-align: center;
+  margin-bottom: -10px; /* Lo acerca a la mascota */
+  position: relative;
+  z-index: 20;
+}
+
+.titulo-servicios-box img {
+  width: 300px !important; /* Tamaño fijo para PC */
+  height: auto;
+}
+
+.consola-box {
+  position: relative;
+  width: 120vw !important; /* OCUPA TODA LA PANTALLA */
+  left: 50%;
+  right: 50%;
+  margin-left: -60vw; /* TRUCO PARA SANGRE TOTAL */
+  line-height: 0;
+}
+
+.bg-mascota {
+  width: 100% !important; /* La mascota manda en el ancho */
+  height: auto !important;
+  display: block;
+}
+
+.botones-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+}
+
+.btn-item {
+  position: absolute;
+  width: 12% !important; /* BOTONES PEQUEÑOS Y ELEGANTES */
+  text-align: center;
+}
+
+
+.btn-item img {
+  width: 80%;
+  height: auto;
+}
+
+.btn-item img:hover {
+  filter: brightness(0) saturate(100%) invert(88%) sepia(59%) saturate(601%) hue-rotate(12deg) brightness(107%) contrast(104%);
+}
+
+
+.btn-item p {
+color: white;
+  font-family: 'VendSans', sans-serif;
+  font-style: italic;
+  font-size: 25px; /* Subimos un poco el tamaño para web */
+  line-height: 1.2; /* ¡ESTO ARREGLA EL TRASLAPE! Le da espacio normal entre líneas */
+  margin-top: 10px;
+  
+  /* Opcional: Si quieres que en PC el texto se mantenga en una sola línea, usa esto: */
+  white-space: nowrap;
+}
+
+.btn-izquierda { 
+  width: 15% !important; 
+  top: 45%; 
+  left: calc(35% - 25vw); /* Se ubica en el centro y retrocede hacia la izquierda */
+}
+.btn-derecha { 
+  top: 45%; 
+  right: calc(35% - 25vw); /* Se ubica en el centro y retrocede hacia la derecha */
+}
+
+/* =========================================
+   CARRUSEL DE RESEÑAS (Estilo Texto Puro)
+   ========================================= */
+#reviews {
+  background-color: transparent;
+  margin: 10VW 0 5VW 0!important; 
+  padding: 15vw 0; /* Espaciado generoso arriba y abajo */
+}
+
+/* Contenedor central de la reseña */
+.review-content {
+  max-width: 60%; /* Evita que el texto llegue hasta las flechas */
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 150px; /* Asegura que el carrusel no brinque si un texto es más largo que otro */
+}
+
+/* El texto de la cita (Blanco e itálico) */
+.review-text {
+  font-family: 'VendSans', sans-serif;
+  font-weight: 500;
+  font-style: italic;
+  font-size: 2.2vw; /* Tamaño responsivo */
+  color: #F5F8FE;
+  margin-bottom: 10px;
+}
+
+/* El nombre del cliente (Celeste y mayúsculas) */
+.review-author {
+  font-family: 'VendSans', sans-serif;
+  font-weight: 800;
+  font-size: 1.2vw;
+  color: #01AEB5;
+  text-transform: uppercase;
+  letter-spacing: 1px; /* Un poco de aire entre las letras */
+  margin: 0;
+}
+
+/* =========================================
+   FLECHAS AMARILLAS PERSONALIZADAS
+   ========================================= */
+.custom-arrow {
+  width: 10%; /* Qué tan cerca están de los bordes de la pantalla */
+  opacity: 1; /* Quitamos la transparencia nativa de Bootstrap */
+}
+
+
+/* Efecto hover suave en las flechas */
+.custom-arrow:hover {
+  opacity: 0.7;
+}
+
+/* Íconos SVG creados con tu color #E5EA26 */
+.custom-prev-icon,
+.custom-next-icon {
+  display: inline-block;
+  width: 4vw; /* Tamaño de la flecha */
+  height: 4vw;
+  background-repeat: no-repeat;
+  background-position: 50%;
+  background-size: 100% 100%;
+}
+
+/* Flecha Izquierda */
+.custom-prev-icon {
+  background-image: url('../imagenes/IZQUIERDA.webp');
+}
+
+/* Flecha Derecha */
+.custom-next-icon {
+  background-image: url('../imagenes/DERECHA.webp');
+}
+
+.carousel-control-prev.custom-arrow {
+  left: 15vw !important; /* Sube este número (ej. 15vw) si quieres que se acerque MÁS al texto */
+  width: auto !important; 
+}
+
+.carousel-control-next.custom-arrow {
+  right: 15vw !important; /* Debe ser exactamente el mismo número que el de arriba */
+  width: auto !important;
+}
+
+
+
+
+
+
+/* =========================================
+   BOTÓN IMAGEN (COTIZA CON NOSOTROS)
+   ========================================= */
+.cotiza-btn {
+  display: inline-block;
+  cursor: pointer;
+  padding-bottom: 15vh;
+
+}
+
+.cotiza-btn img {
+  width: 30vw; 
+  min-width: 250px;
+  max-width: 450px;
+  transition: filter 0.3s ease, transform 0.3s ease;
+}
+
+
+
+/* El efecto al pasar el mouse (Hover) */
+.cotiza-btn:hover img {
+  transform: scale(1.05); /* Pequeño salto hacia adelante */
+  
+  /* Fórmula matemática exacta para transformarlo a tu celeste #01AEB5 */
+  filter: brightness(0) saturate(100%) invert(50%) sepia(85%) saturate(2800%) hue-rotate(145deg) brightness(95%) contrast(100%);
+}
+
+footer {
+  background-color:#E5EA26;
+  color: #1D1D1B;
+  font-family: 'VendSans', sans-serif;
+  font-weight: 700;
+  
+  
+}
+
+.footer-logo {
+  height: 6vh;
+  width: auto;
+    margin-right: 30px;
+
+}
+
+
+.footer-icon {
+  height: 3vh;
+  transition: filter 0.3s ease;
+}
+
+.footer-icon:hover {
+  filter: brightness(0) saturate(100%) invert(86%) sepia(16%) saturate(2465%) hue-rotate(18deg) brightness(102%) contrast(92%);
+}
+
+
+@media (max-width: 768px) {
+  body {
+    background-image: url('imagenes/fondonegro.webp');
+    background-position: top center;
+    background-attachment: scroll;
+    background-color: #1D1D1B;
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+  }
+
+  .navbar {
+    background-color: #1D1D1B;
+  }
+
+  .navbar-collapse {
+    text-align: center;
+    background-color: #1D1D1B;
+    padding: 5%;
+  }
+
+  .social-icons {
+    justify-content: center !important;
+  }
+
+  .social-icons a img {
+    height: 24px;
+    margin: 5px;
+  }
+
+  .navbar-nav .nav-link {
+    font-size: 1.1rem;
+  }
+
+  .overlay-text h1 {
+    font-size: 1.2rem;
+  }
+
+  .navbar-brand {
+    margin-left: 5vw; /* Un poco más pegado a la izquierda en celulares */
+  }
+  
+  
+  #inicio-hero {
+    width: 100%;
+    overflow-x: hidden !important; /* Tijera obligatoria para móviles */
+    padding: 0 !important;
+  }
+
+  .img-principal {
+    width: 120%; /* Lo hacemos un poquito más grande para que el rayo siga sangrando */
+    max-width: none !important;
+    height: auto !important;
+    display: block;
+     margin-left: 8% !important; 
+    transform: none !important; 
+  
+  }
+
+  .hero-text-overlay {
+    position: relative !important; 
+    left: 0 !important; 
+    bottom: auto !important; /* Reseteamos cualquier empuje que hayamos puesto en la versión de PC */
+    padding-left: 5vw !important; 
+    padding-right: 5vw !important;
+    padding-bottom: 30px !important;
+    margin-top: 0 !important;
+  }
+
+  .hero-subtitle {
+    font-size: 1.1rem; 
+    margin-top: -15px !important; /* Sube el texto un poco para acercarlo a Boomyflip */
+    margin-bottom: 15px !important;
+  }
+  
+  .img-imaginacion {
+    max-width: 45vw; /* Buen tamaño para lectura en teléfono */
+  }
+
+  .franja-img {
+  width: 200vw !important; }
+
+  
+.titulo-servicios-box img {
+    width: 220px !important;
+  }
+  
+  .btn-item {
+    width: 30% !important; 
+    display: flex;
+        flex-direction: column;
+        align-items: center;/* Un poco más grandes en móvil */
+  }
+
+  .btn-item p {
+   font-size: 12px; /* Reducimos un poquito el tamaño de la fuente para móvil */
+        line-height: 1.2;
+        max-width: 90px; /* EL TRUCO: Al limitar el ancho máximo, el texto se ve obligado a saltar a la siguiente línea */
+        margin: 8px auto 0 auto;
+  }
+
+  .btn-item img {
+  width: 25%;
+  height: auto;
+  object-fit: contain;
+}
+
+.btn-izquierda { 
+        top: 40%; /* Ajusta este porcentaje para subirlos o bajarlos */
+        left: 5%;  
+    }
+    
+    .btn-derecha { 
+        top: 40%; 
+        right: 5%; 
+    }
+
+#reviews {
+  margin: 5VW 0 5VW 0!important; 
+  padding: 5vw 0; /* Espaciado generoso arriba y abajo */
+}
+
+    .review-content {
+    max-width: 75%; /* Le damos más espacio al texto en pantallas pequeñas */
+  }
+  
+  .review-text {
+    font-size: 5vw; /* Texto de la cita más grande */
+  }
+
+  .review-author {
+    font-size: 3vw; /* Autor más grande */
+  }
+
+  .custom-prev-icon,
+  .custom-next-icon {
+    width: 8vw; /* Flechas más grandes en móvil para poder tocarlas bien */
+    height: 8vw;
+  }
+  .carousel-control-prev.custom-arrow {
+  left: 1vw !important; /* Sube este número (ej. 15vw) si quieres que se acerque MÁS al texto */
+  width: auto !important; 
+}
+
+.carousel-control-next.custom-arrow {
+  right: 1vw !important; /* Debe ser exactamente el mismo número que el de arriba */
+  width: auto !important;
+}
+
+.cotiza-btn {
+  padding-bottom: 10vh;
+}
+  .footer-icon {
+  height: 3vh;
+  margin-right: 1.5vw ;
+  transition: filter 0.3s ease;
+}
+
+
+.cotiza-btn:active img,
+  .btn-lime:active,
+  .btn-outline-lime:active {
+    transform: scale(0.92) !important; /* Se hace un 8% más pequeño para simular presión */
+    transition: transform 0.1s ease; /* Súper rápido para que se sienta instantáneo */
+  }
+
+
+/* Definimos la animación CTA Periódica para móviles */
+@keyframes mobileCTAPopWiggle {
+    /* 5 segundos quieto de 6 totales (83.33% quieto) */
+    0%, 83.33%, 100% { 
+        transform: scale(1) rotate(0deg);
+        filter: drop-shadow(0 0 3px rgba(229, 234, 38, 0.3)); /* Brillo muy tenue constante */
+    }
+    
+    /* Comienza la acción (pop up y brillo intenso) */
+    85% { 
+        transform: scale(1.1) rotate(0deg); /* Se hace un poco más grande */
+        filter: drop-shadow(0 0 15px rgba(229, 234, 38, 1)); /* Brillo intenso #E5EA26 */
+    }
+    
+    /* Pequeño wiggle (meneo) para simular un clic */
+    87% { transform: scale(1.1) rotate(-5deg); } 
+    89% { transform: scale(1.1) rotate(5deg); }
+    91% { transform: scale(1.1) rotate(-2deg); }
+    93% { transform: scale(1.1) rotate(2deg); }
+    
+    /* Termina el meneo, se mantiene grande y brillante un instante */
+    95% { 
+        transform: scale(1.1) rotate(0deg);
+        filter: drop-shadow(0 0 15px rgba(229, 234, 38, 1));
+    }
+    /* Comienza a volver a su estado normal */
+}
+    
+    /* Aplicamos la animación a los elementos de botón */
+    .btn-item {
+        /* Los otros estilos móviles que ya definimos antes */
+        width: 30% !important; 
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        /* --- AQUÍ LA MAGIA --- */
+        /* Llamamos a la animación. Dura 6 segundos, en bucle infinito. */
+        animation: mobileCTAPopWiggle 6s ease-in-out infinite;
+        
+        /* Opcional: Para evitar que el texto se mueva con el wiggle, aplicamos la animación solo a la imagen si lo prefieres: 
+           Cambia .btn-item por .btn-item img y mueve 'transform-origin: center center;' aquí.
+        */
+        transform-origin: center center; /* El punto de origen del escalado es el centro */
+    }
+
+    /* ... resto de tu CSS móvil ... */
+
+
+}
+
+/* =========================================
+   ANIMACIÓN DE BOOMYHERO (MASCOTA)
+   ========================================= */
+
+/* 1. Definimos la animación "Púlsar y Flotar" */
+@keyframes boomyheroDynamic {
+    /* Estado inicial: tamaño normal, posición normal, brillo normal */
+    0% {
+        transform: translate(-50%, -50%) scale(1) translateY(0) rotate(0deg);
+        filter: brightness(1); 
+    }
+    
+    /* Estado medio: crece, flota hacia arriba, brilla y gira un poco */
+    50% {
+        transform: translate(-50%, -50%) scale(1.1) translateY(-15px) rotate(10deg); /* Crece 10%, flota 15px arriba */
+        filter: brightness(1.3); /* Brilla un 30% más */
+    }
+    
+    /* Vuelve a su estado inicial para el bucle perfecto */
+    100% {
+        transform: translate(-50%, -50%) scale(1) translateY(0) rotate(0deg);
+        filter: brightness(1);
+    }
+}
+
+/* 2. Contenedor para centrar y definir el tamaño */
+.boomyhero-container {
+    position: absolute; /* Vital para que flote sobre el fondo */
+    top: 72%; /* Se coloca en el centro vertical de la col-12 */
+    left: 40%; /* Se coloca en el centro horizontal de la col-12 */
+    
+    /* El secreto del centrado absoluto: */
+    /* Este translate(-50%, -50%) la centra exactamente en el punto top:50%, left:50% */
+    transform: translate(-50%, -50%); 
+    
+    /* Define un tamaño base para el área de la mascota */
+    width: 400px; /* Ajusta este valor al tamaño que quieras en escritorio */
+    height: 400px; 
+    
+    z-index: 10; /* Asegura que la mascota esté SOBRE el fondo */
+    pointer-events: none; /* No bloquea los clics si pones texto debajo */
+}
+
+/* 3. La imagen de la mascota */
+.boomyhero-mascota {
+    position: absolute; /* Para que la animación de transform funcione bien */
+    width: 100%; /* Ocupa todo el contenedor boomyhero-container */
+    height: auto;
+    object-fit: contain; /* No se deforma */
+    transform-origin: center center; /* El punto de origen del giro es el centro */
+    
+    /* --- AQUÍ LA MAGIA DE LA ANIMACIÓN --- */
+    /* Llamamos a la animación definida arriba. Dura 5s, es suave, bucle infinito */
+    animation: boomyheroDynamic 5s ease-in-out infinite; 
+}
+
+/* =========================================
+   VERSIÓN MÓVIL (Responsivo)
+   ========================================= */
+@media (max-width: 768px) {
+    .boomyhero-container {
+        /* Hacemos la mascota un poco más pequeña en móviles */
+        width: 120px;
+        height: 120px;
+        /* Puedes ajustar 'top' si en móviles la explosión queda más arriba o abajo */
+        top: 60%; 
+         left: 45%; 
+    }
+}

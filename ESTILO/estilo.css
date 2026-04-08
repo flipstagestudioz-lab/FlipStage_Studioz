@@ -655,6 +655,7 @@ footer {
   .footer-icon {
   height: 3vh;
   margin-right: 1.5vw ;
+  transition: filter 0.3s ease;
 }
 
 

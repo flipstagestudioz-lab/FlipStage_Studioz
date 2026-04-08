@@ -174,9 +174,10 @@ body.background-image > header {
 .dropdown-menu .dropdown-item {
   color: #F5F8FE !important;
   transition: all 0.3s ease;
-  font-family: 'Devant Horgen';
-  font-size: 26px;
-  letter-spacing: 1px;
+   font-family: 'VendSans', sans-serif;
+  font-weight: 800;
+  font-size: 16px;
+
   padding-top: 8px;
   padding-bottom: 8px;
   /* ESTA ES LA MAGIA: Ajusta la altura de la caja a la letra real */
@@ -245,6 +246,7 @@ body.background-image > header {
   pointer-events: auto !important; 
   position: relative;
   z-index: 10 !important;
+  margin: 5px;
 }
 
 /* El logo a la izquierda */
@@ -262,8 +264,9 @@ body.background-image > header {
 }
 
 .adventure-text h1 {
-  font-family: 'Devant Horgen';
-  font-size: 5rem;
+ font-family: 'VendSans', sans-serif;
+  font-weight: 800;
+  font-size: 2.5vw; 
   margin-bottom: 1rem;
   color: #F5F8FE !important;
 }
@@ -639,9 +642,10 @@ filter: brightness(0) saturate(100%) invert(8%) sepia(4%) saturate(4173%) hue-ro
 }
 
 .plan-title {
-  font-family: 'Devant Horgen';
+    font-family: 'VendSans', sans-serif;
+  font-weight: 700;
   color: #1D1D1B;
-  font-size: 3.5rem; /* Título con más presencia */
+  font-size: 2.2rem;
   margin-bottom: 40px !important; /* Separación drástica entre título y lista */
   line-height: 1;
 }

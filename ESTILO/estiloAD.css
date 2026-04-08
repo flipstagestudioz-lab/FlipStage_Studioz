@@ -244,7 +244,7 @@ body.background-image > header {
   pointer-events: auto !important; 
   position: relative;
   z-index: 10 !important;
- margin-left: 130px;
+ margin-left: 230px !important;
 }
 
 /* El logo a la izquierda */

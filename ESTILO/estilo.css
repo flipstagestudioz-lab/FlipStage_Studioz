@@ -399,98 +399,146 @@ color: white;
   right: calc(35% - 25vw); /* Se ubica en el centro y retrocede hacia la derecha */
 }
 
-/* =========================================
-   CARRUSEL DE RESEÑAS (Estilo Texto Puro)
-   ========================================= */
-#reviews {
+/* =============================================
+       SECCIÓN MARCAS
+       ============================================= */
+#marcas-seccion {
   background-color: transparent;
-  margin: 10VW 0 5VW 0!important; 
-  padding: 15vw 0; /* Espaciado generoso arriba y abajo */
+  margin: 10vw 0 5vw 0;
+  padding: 6vw 0 8vw 0;
+  overflow: hidden;
 }
 
-/* Contenedor central de la reseña */
-.review-content {
-  max-width: 60%; /* Evita que el texto llegue hasta las flechas */
-  margin: 0 auto;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  min-height: 150px; /* Asegura que el carrusel no brinque si un texto es más largo que otro */
+.marcas-header {
+  padding: 0 5vw;
 }
 
-/* El texto de la cita (Blanco e itálico) */
-.review-text {
-  font-family: 'VendSans', sans-serif;
-  font-weight: 500;
-  font-style: italic;
-  font-size: 2.2vw; /* Tamaño responsivo */
-  color: #F5F8FE;
-  margin-bottom: 10px;
-}
-
-/* El nombre del cliente (Celeste y mayúsculas) */
-.review-author {
+.marcas-eyebrow {
   font-family: 'VendSans', sans-serif;
   font-weight: 800;
-  font-size: 1.2vw;
+  font-size: 1vw;
+  letter-spacing: 0.3em;
   color: #01AEB5;
   text-transform: uppercase;
-  letter-spacing: 1px; /* Un poco de aire entre las letras */
-  margin: 0;
+  margin-bottom: 0.5em;
 }
 
-/* =========================================
-   FLECHAS AMARILLAS PERSONALIZADAS
-   ========================================= */
-.custom-arrow {
-  width: 10%; /* Qué tan cerca están de los bordes de la pantalla */
-  opacity: 1; /* Quitamos la transparencia nativa de Bootstrap */
-}
-
-
-/* Efecto hover suave en las flechas */
-.custom-arrow:hover {
-  opacity: 0.7;
-}
-
-/* Íconos SVG creados con tu color #E5EA26 */
-.custom-prev-icon,
-.custom-next-icon {
+.img-titulo-principal {
+  width: 45vw;
+  /* Ocupará cerca de la mitad del ancho de la pantalla en PC */
+  max-width: 600px;
+  /* Evita que se haga gigante si la pantalla es enorme */
+  height: auto;
+  /* Mantiene la proporción perfecta del diseño */
   display: inline-block;
-  width: 4vw; /* Tamaño de la flecha */
-  height: 4vw;
-  background-repeat: no-repeat;
-  background-position: 50%;
-  background-size: 100% 100%;
 }
 
-/* Flecha Izquierda */
-.custom-prev-icon {
-  background-image: url('../imagenes/IZQUIERDA.webp');
+/* ---- Carrusel infinito ---- */
+.marcas-track-wrapper {
+  position: relative;
+  margin-top: 5vw;
+  /* Bordes difuminados laterales */
+  -webkit-mask-image: linear-gradient(to right,
+      transparent 0%,
+      black 10%,
+      black 90%,
+      transparent 100%);
+  mask-image: linear-gradient(to right,
+      transparent 0%,
+      black 10%,
+      black 90%,
+      transparent 100%);
 }
 
-/* Flecha Derecha */
-.custom-next-icon {
-  background-image: url('../imagenes/DERECHA.webp');
+.marcas-track {
+  display: flex;
+  align-items: center;
+  gap: 3vw;
+  width: max-content;
+  animation: marcas-scroll 28s linear infinite;
 }
 
-.carousel-control-prev.custom-arrow {
-  left: 15vw !important; /* Sube este número (ej. 15vw) si quieres que se acerque MÁS al texto */
-  width: auto !important; 
+.marcas-track:hover {
+  animation-play-state: paused;
 }
 
-.carousel-control-next.custom-arrow {
-  right: 15vw !important; /* Debe ser exactamente el mismo número que el de arriba */
-  width: auto !important;
+@keyframes marcas-scroll {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
 }
 
+.marca-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 180px;
+  height: 80px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 0 2vw;
+  transition: border-color 0.3s ease, background 0.3s ease;
+  flex-shrink: 0;
+}
+
+.marca-item:hover {
+  border-color: #01AEB5;
+  background: rgba(1, 174, 181, 0.07);
+}
+
+/* Cuando uses imágenes reales, reemplaza .marca-placeholder con un <img> */
+.marca-placeholder {
+  font-family: 'VendSans', sans-serif;
+  font-weight: 700;
+  font-size: 1vw;
+  color: rgba(245, 248, 254, 0.35);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.marca-item img {
+  max-height: 50px;
+  max-width: 140px;
+  width: auto;
+  object-fit: contain;
+  /* Quitamos el filter para que no pinte los logos de blanco sobre fondo blanco */
+  opacity: 0.7;
+  /* Se ven un poco más suaves por defecto */
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.marca-item:hover img {
+  opacity: 1;
+  /* Se iluminan al 100% al pasar el mouse */
+  transform: scale(1.05);
+  /* Un pequeño efecto visual extra de agrandado */
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 768px) {
+  .marcas-eyebrow {
+    font-size: 2.5vw;
+  }
+
+.img-titulo-principal {
+    width: 80vw;     /* En celulares se agranda para que se pueda leer bien el diseño */
+  }
+
+  .marca-item {
+    min-width: 120px;
+    height: 60px;
+  }
+
+  .marca-placeholder {
+    font-size: 2.5vw;
+  }
+}
 
 
 

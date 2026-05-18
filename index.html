@@ -3,61 +3,57 @@
 
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Flipstage Studioz | Diseño Gráfico y Creatividad en El Salvador</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO"
-    crossorigin="anonymous"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <meta name="description" content="Flipstage Studioz es un estudio de diseño gráfico enfocado en crear identidades visuales únicas y soluciones creativas.">
+  
+  <link rel="shortcut icon" href="imagenes/Recurso 1.ico" />
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Vend+Sans:ital,wght@0,300..700;1,300..700&display=swap"
-    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Vend+Sans:ital,wght@0,300..700;1,300..700&display=swap" rel="stylesheet">
+  
   <link rel="stylesheet" href="ESTILO/estilo.css" />
-  <link rel="shortcut icon" href="imagenes/Recurso 1.ico" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
   <link rel="stylesheet" href="css/responsive-flipstage.css">
-  <meta name="description"
-    content="Flipstage Studioz es un estudio de diseño gráfico enfocado en crear identidades visuales únicas y soluciones creativas.">
 </head>
 
-<body class="background-image">
-  <header>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-transparent">
-      <div class="container-fluid">
+<body>
+  <div id="cursor-dot"></div>
+  <div id="cursor-ring"></div>
 
-        <a class="navbar-brand logo me-3" href="index.html">
+  <header id="site-header">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-transparent">
+      <div class="container-fluid px-0">
+        <a class="navbar-brand" href="index.html">
           <img src="imagenes/logo resumido.webp" alt="Logo FlipStage">
         </a>
 
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler border-0 me-3" type="button" data-bs-toggle="collapse" data-bs-target="#navMain">
           <span class="navbar-toggler-icon"></span>
         </button>
 
-        <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
-          <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+        <div class="collapse navbar-collapse justify-content-between" id="navMain">
+          <ul class="navbar-nav mx-auto gap-1 mb-2 mb-lg-0">
             <li class="nav-item">
               <a class="nav-link active" href="index.html">Inicio</a>
             </li>
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                aria-expanded="false">Secciones</a>
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Secciones</a>
               <ul class="dropdown-menu">
                 <li><a class="dropdown-item" href="ADventure.html">ADventure</a></li>
                 <li><a class="dropdown-item" href="PROductions.html">PROductions</a></li>
               </ul>
             </li>
             <li class="nav-item">
-              <a class="nav-link active" href="contacto.html">Contáctanos</a>
+              <a class="nav-link" href="contacto.html">Contáctanos</a>
             </li>
           </ul>
-
-          <div class="social-icons d-flex justify-content-center gap-3 mt-3 mt-lg-0">
+          <div class="navbar-social d-flex align-items-center gap-3">
             <a href="mailto:flipstage.studioz@gmail.com"><img src="imagenes/gmailbla.png" alt="Gmail"></a>
             <a href="https://www.instagram.com/flipstage_studioz/"><img src="imagenes/instabla.png" alt="Instagram"></a>
-            <a href="https://wa.me/50372302641"><img src="imagenes/whabla.png" alt="Whatsapp"></a>
+            <a href="https://wa.me/50372302641"><img src="imagenes/whabla.png" alt="WhatsApp"></a>
+            <a href="contacto.html" class="nav-link nav-cta ms-2">Cotiza →</a>
           </div>
         </div>
       </div>
@@ -67,40 +63,21 @@
   <section id="inicio-hero" class="container-fluid px-0 position-relative">
     <div class="row mx-0">
       <div class="col-12 px-0 position-relative">
-
         <img src="imagenes/INDEX1.webp" alt="Hola Flipstage" class="w-100 img-fluid img-principal">
-
         <div class="boomyhero-container">
           <img src="imagenes/BOOMYHERO.webp" alt="Boomyhero" class="boomyhero-mascota">
-
         </div>
-
-        <div class="hero-text-overlay position-absolute bottom-0 mb-4">
-          <p class="hero-subtitle">
-            Acompáñanos a ver lo que <br> ha sucedido aquí recientemente...
-          </p>
-          <a href="https://www.instagram.com/flipstage_studioz/"><img src="imagenes/BOTONINSTA.webp" alt="Imaginación"
-              class="img-fluid img-imaginacion"></a>
-        </div>
-
       </div>
     </div>
   </section>
 
-
-  <section id="nosotros-seccion"
-    class="container-fluid position-relative d-flex justify-content-center align-items-center">
+  <section id="nosotros-seccion" class="container-fluid position-relative d-flex justify-content-center align-items-center">
     <div class="row w-100">
       <div class="col-12 px-0 position-relative z-index-1">
-
-
-      </div>
+        </div>
+    </div>
   </section>
 
-
-  <!-- =============================================
-       SECCIÓN: MARCAS CON LAS QUE TRABAJAMOS
-       ============================================= -->
   <section id="marcas-seccion" class="py-5">
     <div class="marcas-header text-center mb-5">
       <p class="marcas-eyebrow">CONFIARON EN NOSOTROS</p>
@@ -111,69 +88,99 @@
 
     <div class="marcas-track-wrapper">
       <div class="marcas-track">
-        <!-- ================= LOGOS REALES ================= -->
-        <div class="marca-item">
-          <img src="imagenes/dentist.png" alt="Dentist" class="img-fluid">
-        </div>
-        <div class="marca-item">
-          <img src="imagenes/ferreb.png" alt="Ferreb" class="img-fluid">
-        </div>
-        <div class="marca-item">
-          <img src="imagenes/pianos.png" alt="Piano" class="img-fluid">
-        </div>
-        <div class="marca-item">
-          <img src="imagenes/HSF.png" alt="HSF" class="img-fluid">
-        </div>
-        <div class="marca-item">
-          <img src="imagenes/dibuteca.png" alt="Dibuteca" class="img-fluid">
-        </div>
-
-        <!-- ================= DUPLICADO PARA LOOP INFINITO ================= -->
-        <div class="marca-item">
-          <img src="imagenes/dentist.png" alt="Dentist" class="img-fluid">
-        </div>
-        <div class="marca-item">
-          <img src="imagenes/ferreb.png" alt="Ferreb" class="img-fluid">
-        </div>
-        <div class="marca-item">
-          <img src="imagenes/pianos.png" alt="Piano" class="img-fluid">
-        </div>
-        <div class="marca-item">
-          <img src="imagenes/HSF.png" alt="HSF" class="img-fluid">
-        </div>
-        <div class="marca-item">
-          <img src="imagenes/dibuteca.png" alt="Dibuteca" class="img-fluid">
-        </div>
+        <div class="marca-item"><img src="imagenes/dentist.png" alt="Dentist" class="img-fluid"></div>
+        <div class="marca-item"><img src="imagenes/ferreb.png" alt="Ferreb" class="img-fluid"></div>
+        <div class="marca-item"><img src="imagenes/pianos.png" alt="Piano" class="img-fluid"></div>
+        <div class="marca-item"><img src="imagenes/HSF.png" alt="HSF" class="img-fluid"></div>
+        <div class="marca-item"><img src="imagenes/dibuteca.png" alt="Dibuteca" class="img-fluid"></div>
+        <div class="marca-item"><img src="imagenes/dentist.png" alt="Dentist" class="img-fluid"></div>
+        <div class="marca-item"><img src="imagenes/ferreb.png" alt="Ferreb" class="img-fluid"></div>
+        <div class="marca-item"><img src="imagenes/pianos.png" alt="Piano" class="img-fluid"></div>
+        <div class="marca-item"><img src="imagenes/HSF.png" alt="HSF" class="img-fluid"></div>
+        <div class="marca-item"><img src="imagenes/dibuteca.png" alt="Dibuteca" class="img-fluid"></div>
       </div>
     </div>
-
-
-
   </section>
 
+<section class="ps">
 
+  <div class="ps-header reveal">
+    <div class="ps-big-num"></div>
+    <div class="ps-title-block">
+      <p class="ps-eyebrow">Proyectos</p>
+      <h2 class="ps-title">Imposibles<br>que hicimos<span> realidad.</span></h2>
+    </div>
 
+  </div>
 
+  <div class="ps-divider"></div>
 
+ <div class="ps-grid">
 
-  <section id="franja-imposible" class="container-fluid px-0">
-    <img src="imagenes/FRANJA.webp" alt="Lo imposible es posible con nosotros" class="img-fluid w-100 franja-img">
-  </section>
+  <!-- TARJETA 01 (GRANDE) -->
+  <div class="ps-card ps-card-main reveal reveal-d1">
+    <!-- REEMPLAZA EL SRC CON LA UBICACIÓN DE TU IMAGEN -->
+    <img src="imagenes/PROYECTO1.webp" alt="Proyecto 01" class="ps-card-img">
+    
+    <div class="ps-card-overlay"></div>
+    <div class="ps-card-num">01</div>
+    <a href="ADventure.html" class="ps-card-arrow">
+      <svg viewBox="0 0 16 16" fill="none"><path d="M3 13L13 3M13 3H6M13 3V10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+    </a>
+    <div class="ps-card-body">
+      <p class="ps-card-tag">ADventure · Publicidad</p>
+      <h3 class="ps-card-name">Proyecto<br>Destacado 01</h3>
+    </div>
+  </div>
 
-  <section id="servicios-seccion-final">
+  <!-- TARJETA 02 -->
+  <div class="ps-card ps-card-b reveal reveal-d2">
+    <!-- REEMPLAZA EL SRC CON LA UBICACIÓN DE TU IMAGEN -->
+    <img src="imagenes/PROYECTO2.webp" alt="Proyecto 02" class="ps-card-img">
+
+    <div class="ps-card-overlay"></div>
+    <div class="ps-card-num">02</div>
+    <a href="PROductions.html" class="ps-card-arrow">
+      <svg viewBox="0 0 16 16" fill="none"><path d="M3 13L13 3M13 3H6M13 3V10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+    </a>
+    <div class="ps-card-body">
+      <p class="ps-card-tag">PROductions · Video</p>
+      <h3 class="ps-card-name">Proyecto 02</h3>
+    </div>
+  </div>
+
+  <!-- TARJETA 03 -->
+  <div class="ps-card ps-card-c reveal reveal-d3">
+    <!-- REEMPLAZA EL SRC CON LA UBICACIÓN DE TU IMAGEN -->
+    <img src="imagenes/PROYECTO3.webp" alt="Proyecto 03" class="ps-card-img">
+
+    <div class="ps-card-overlay"></div>
+    <div class="ps-card-num">03</div>
+    <a href="ADventure.html" class="ps-card-arrow">
+      <svg viewBox="0 0 16 16" fill="none"><path d="M3 13L13 3M13 3H6M13 3V10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+    </a>
+    <div class="ps-card-body">
+      <p class="ps-card-tag">ADventure · Diseño</p>
+      <h3 class="ps-card-name">Proyecto 03</h3>
+    </div>
+  </div>
+
+</div>
+
+</section>
+ 
+  <section id="servicios-seccion-final" class="overflow-hidden">
     <div class="titulo-servicios-box">
       <img src="imagenes/SERVICIOS.webp" alt="Servicios">
     </div>
 
     <div class="consola-box">
       <img src="imagenes/SECCIONES.webp" class="bg-mascota" alt="">
-
       <div class="botones-container">
         <div class="btn-item btn-izquierda">
           <a href="PROductions.html"><img src="imagenes/PRO.webp" alt="PRO"></a>
           <p>Vive la travesía <br> audiovisual</p>
         </div>
-
         <div class="btn-item btn-derecha">
           <a href="ADventure.html"><img src="imagenes/AD.webp" alt="AD"></a>
           <p>Publicidad <br> de estrellas</p>
@@ -182,44 +189,87 @@
     </div>
   </section>
 
-
-
-
-
-
-  <section id="cotiza-seccion" class="text-center py-5">
-    <div class="container">
-      <a href="contacto.html" class="cotiza-btn">
-        <img src="imagenes/COTIZA.webp" alt="Cotiza con nosotros" class="img-fluid">
-      </a>
+  <section id="cotiza-seccion">
+    <div class="container-fluid px-0">
+      <div class="cotiza-box reveal">
+        <div class="row align-items-center">
+          <div class="col-12 col-lg-7 text-center text-lg-start mb-4 mb-lg-0">
+            <p class="eyebrow">Siguiente paso</p>
+            <h2 class="cotiza-hl">¿Listo para crear<br>algo <em>increíble</em>?</h2>
+          </div>
+          <div class="col-12 col-lg-5 text-center text-lg-end">
+            <a href="contacto.html" class="cotiza-img-btn">
+              <img src="imagenes/COTIZA.webp" alt="Cotiza con nosotros" class="img-fluid d-inline-block">
+            </a>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
-
 
   <footer class="footer mt-auto py-3">
     <div class="container-fluid">
       <div class="row align-items-center text-center text-lg-start">
-
         <div class="col-12 col-lg-4 mb-3 mb-lg-0 d-flex justify-content-center justify-content-lg-start">
           <img src="imagenes/LOGO_R_N.webp" alt="Logo" class="footer-logo">
         </div>
-
         <div class="col-12 col-lg-4 mb-3 mb-lg-0 d-flex justify-content-center gap-3">
-          <a href="mailto:flipstage.studioz@gmail.com"><img src="imagenes/Recurso 5.png" alt="Gmail"
-              class="footer-icon"></a>
-          <a href="https://www.instagram.com/flipstage_studioz/"><img src="imagenes/Recurso 4.png" alt="Instagram"
-              class="footer-icon"></a>
+          <a href="mailto:flipstage.studioz@gmail.com"><img src="imagenes/Recurso 5.png" alt="Gmail" class="footer-icon"></a>
+          <a href="https://www.instagram.com/flipstage_studioz/"><img src="imagenes/Recurso 4.png" alt="Instagram" class="footer-icon"></a>
           <a href="https://wa.me/50372302641"><img src="imagenes/Recurso 3.png" alt="Whatsapp" class="footer-icon"></a>
         </div>
-
         <div class="col-12 col-lg-4 d-flex justify-content-center justify-content-lg-end">
           <p class="mb-0 small">&copy; 2026 Flipstage Studioz | Todos los derechos reservados.</p>
         </div>
-
       </div>
     </div>
   </footer>
 
-</body>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
+  <script>
+    // Cursor inteligente
+    const dot = document.getElementById('cursor-dot');
+    const ring = document.getElementById('cursor-ring');
+    let mx=0, my=0, rx=0, ry=0;
+    
+    document.addEventListener('mousemove', e => {
+      mx = e.clientX; my = e.clientY;
+      dot.style.left = mx+'px'; dot.style.top = my+'px';
+    });
+    
+    (function loop(){ 
+      rx+=(mx-rx)*.11; ry+=(my-ry)*.11; 
+      ring.style.left=rx+'px'; ring.style.top=ry+'px'; 
+      requestAnimationFrame(loop); 
+    })();
 
+    // Navbar scroll
+    const hdr = document.getElementById('site-header');
+    window.addEventListener('scroll', () => hdr.classList.toggle('scrolled', scrollY > 50));
+
+    // Scroll reveal con IntersectionObserver
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('visible'); io.unobserve(e.target); } });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  </script>
+<script>
+const els = document.querySelectorAll('.reveal');
+const ob = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('visible'); ob.unobserve(e.target); } });
+}, { threshold: 0.1 });
+els.forEach(el => ob.observe(el));
+setTimeout(() => els.forEach(el => el.classList.add('visible')), 300);
+
+document.querySelectorAll('.ps-card').forEach(card => {
+  card.addEventListener('mousemove', e => {
+    const r = card.getBoundingClientRect();
+    const x = (e.clientX - r.left) / r.width - .5;
+    const y = (e.clientY - r.top) / r.height - .5;
+    card.style.transform = `perspective(1200px) rotateX(${y * -2.5}deg) rotateY(${x * 2.5}deg)`;
+  });
+  card.addEventListener('mouseleave', () => { card.style.transform = ''; });
+});
+</script>
+</body>
 </html>

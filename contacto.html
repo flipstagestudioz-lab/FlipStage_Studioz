@@ -18,47 +18,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">  <link rel="stylesheet" href="css/responsive-flipstage.css">
 </head>
 
-<body class="background-image">
-<header>
- <nav class="navbar navbar-expand-lg navbar-dark bg-transparent">
-    <div class="container-fluid">
-      
-      <a class="navbar-brand logo me-3" href="index.html">
-        <img src="imagenes/logo resumido.webp" alt="Logo FlipStage">
-      </a>
+<body>
+  <div id="cursor-dot"></div>
+  <div id="cursor-ring"></div>
 
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+  <header id="site-header">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-transparent">
+      <div class="container-fluid px-0">
+        <a class="navbar-brand" href="index.html">
+          <img src="imagenes/logo resumido.webp" alt="Logo FlipStage">
+        </a>
 
-      <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
-        <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link active" href="index.html">Inicio</a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-              aria-expanded="false">Secciones</a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="ADventure.html">ADventure</a></li>
-              <li><a class="dropdown-item" href="PROductions.html">PROductions</a></li>
-            </ul>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active" href="contacto.html">Contáctanos</a>
-          </li>
-        </ul>
+        <button class="navbar-toggler border-0 me-3" type="button" data-bs-toggle="collapse" data-bs-target="#navMain">
+          <span class="navbar-toggler-icon"></span>
+        </button>
 
-        <div class="social-icons d-flex justify-content-center gap-3 mt-3 mt-lg-0">
-          <a href="mailto:flipstage.studioz@gmail.com"><img src="imagenes/gmailbla.png" alt="Gmail"></a>
-          <a href="https://www.instagram.com/flipstage_studioz/"><img src="imagenes/instabla.png" alt="Instagram"></a>
-          <a href="https://wa.me/50372302641"><img src="imagenes/whabla.png" alt="Whatsapp"></a>
+        <div class="collapse navbar-collapse justify-content-between" id="navMain">
+          <ul class="navbar-nav mx-auto gap-1 mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" href="index.html">Inicio</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Secciones</a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="ADventure.html">ADventure</a></li>
+                <li><a class="dropdown-item" href="PROductions.html">PROductions</a></li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contacto.html">Contáctanos</a>
+            </li>
+          </ul>
+          <div class="navbar-social d-flex align-items-center gap-3">
+            <a href="mailto:flipstage.studioz@gmail.com"><img src="imagenes/gmailbla.png" alt="Gmail"></a>
+            <a href="https://www.instagram.com/flipstage_studioz/"><img src="imagenes/instabla.png" alt="Instagram"></a>
+            <a href="https://wa.me/50372302641"><img src="imagenes/whabla.png" alt="WhatsApp"></a>
+            <a href="contacto.html" class="nav-link nav-cta ms-2">Cotiza →</a>
+          </div>
         </div>
       </div>
-    </div>
-  </nav>
-</header>
+    </nav>
+  </header>
     <section id="contacto" class="d-flex align-items-center">
     <div class="container contact-container">
         <h3 class="text-center mb-4 fw-bold custom-title">Contáctanos</h3>
@@ -107,6 +107,34 @@
       </div>
     </div>
   </footer>
+
+  <script>
+    // Cursor inteligente
+    const dot = document.getElementById('cursor-dot');
+    const ring = document.getElementById('cursor-ring');
+    let mx=0, my=0, rx=0, ry=0;
+    
+    document.addEventListener('mousemove', e => {
+      mx = e.clientX; my = e.clientY;
+      dot.style.left = mx+'px'; dot.style.top = my+'px';
+    });
+    
+    (function loop(){ 
+      rx+=(mx-rx)*.11; ry+=(my-ry)*.11; 
+      ring.style.left=rx+'px'; ring.style.top=ry+'px'; 
+      requestAnimationFrame(loop); 
+    })();
+
+    // Navbar scroll
+    const hdr = document.getElementById('site-header');
+    window.addEventListener('scroll', () => hdr.classList.toggle('scrolled', scrollY > 50));
+
+    // Scroll reveal con IntersectionObserver
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('visible'); io.unobserve(e.target); } });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  </script>
 
 </body>
 

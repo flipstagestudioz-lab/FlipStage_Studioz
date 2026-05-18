@@ -1,369 +1,440 @@
+/* ════════════════ FUENTES ════════════════ */
 @font-face {
   font-family: 'Devant Horgen';
   src: url('../font/Devant Horgen.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
+  font-weight: normal; font-style: normal;
 }
-
 @font-face {
   font-family: 'VendSans';
   src: url('../font/VendSans-Light.ttf') format('truetype');
-  font-weight: 300;
-  font-style: normal;
+  font-weight: 300; font-style: normal;
 }
-
 @font-face {
   font-family: 'VendSans';
   src: url('../font/VendSans-LightItalic.ttf') format('truetype');
-  font-weight: 300;
-  font-style: italic;
+  font-weight: 300; font-style: italic;
 }
-
 @font-face {
   font-family: 'VendSans';
   src: url('../font/VendSans-Regular.ttf') format('truetype');
-  font-weight: 400;
-  font-style: normal;
+  font-weight: 400; font-style: normal;
 }
-
 @font-face {
   font-family: 'VendSans';
   src: url('../font/VendSans-Italic.ttf') format('truetype');
-  font-weight: 400;
-  font-style: italic;
+  font-weight: 400; font-style: italic;
 }
-
 @font-face {
   font-family: 'VendSans';
   src: url('../font/VendSans-Medium.ttf') format('truetype');
-  font-weight: 500;
-  font-style: normal;
+  font-weight: 500; font-style: normal;
 }
-
 @font-face {
   font-family: 'VendSans';
   src: url('../font/VendSans-MediumItalic.ttf') format('truetype');
-  font-weight: 500;
-  font-style: italic;
+  font-weight: 500; font-style: italic;
 }
-
 @font-face {
   font-family: 'VendSans';
   src: url('../font/VendSans-SemiBold.ttf') format('truetype');
-  font-weight: 600;
-  font-style: normal;
+  font-weight: 600; font-style: normal;
 }
-
 @font-face {
   font-family: 'VendSans';
   src: url('../font/VendSans-SemiBoldItalic.ttf') format('truetype');
-  font-weight: 600;
-  font-style: italic;
+  font-weight: 600; font-style: italic;
 }
-
 @font-face {
   font-family: 'VendSans';
   src: url('../font/VendSans-Bold.ttf') format('truetype');
-  font-weight: 700;
-  font-style: normal;
+  font-weight: 700; font-style: normal;
 }
-
 @font-face {
   font-family: 'VendSans';
   src: url('../font/VendSans-BoldItalic.ttf') format('truetype');
-  font-weight: 700;
-  font-style: italic;
+  font-weight: 700; font-style: italic;
 }
 
-body,
-html {
-  margin: 0;
-  padding: 0;
-  height: 100%;
-  overflow: auto;
+/* ════════════════ VARIABLES & BASE ════════════════ */
+:root {
+  --teal:   #01AEB5;
+  --lime:   #E5EA26;
+  --black:  #1D1D1B;
+  --white:  #F5F8FE;
+  --pink: #FF5964;
+  --grape: #7B29FC;
+  --mid:    rgba(245,248,254,0.05);
+  --border: rgba(245,248,254,0.08);
+  --gap:    clamp(80px, 12vw, 160px);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+* { cursor: none !important; }
+html { scroll-behavior: smooth; }
+
+body {
+  background-color: var(--black);
+  color: var(--white);
   font-family: 'VendSans', sans-serif;
-  font-weight: 400;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  min-height: 100vh;
-  -webkit-box-flex: 1;
-  -ms-flex: 1;
-  flex: 1;
-}
-
-.background-image {
-  background-image: url('../imagenes/fondonegro.webp');
-  background-repeat: no-repeat;
-  background-position: top center;
-  background-size: 100% auto;
-  background-attachment: scroll;
-  width: 100%;
-  display: block;
-}
-
-.background-image>* {
+  
+  /* CAMBIO CLAVE AQUÍ: Forzar al navegador a cortar cualquier cosa que se salga */
+  overflow-x: hidden !important;
+  width: 100vw !important;
+  
+  margin: 0; padding: 0;
+  max-width: 100%;
   position: relative;
-  z-index: 0;
 }
 
-header {
-  position: relative;
-  z-index: 99999 !important;
-  /* El !important asegura que nada le gane */
+/* ════════════════ CURSOR ════════════════ */
+#cursor-dot {
+  width: 7px; height: 7px;
+  background: var(--lime);
+  border-radius: 50%;
+  position: fixed; top: 0; left: 0;
+  pointer-events: none; z-index: 999999;
+  transform: translate(-50%,-50%);
 }
-
-
-/* =========================================
-   Barra de navegación
-   ========================================= */
-
-.navbar {
-  padding-top: 15px;
-  padding-bottom: 15px;
-  position: relative;
-  z-index: 1050;
-  margin-right: 10vw;
+#cursor-ring {
+  width: 34px; height: 34px;
+  border: 1.5px solid rgba(1,174,181,0.55);
+  border-radius: 50%;
+  position: fixed; top: 0; left: 0;
+  pointer-events: none; z-index: 999998;
+  transform: translate(-50%,-50%);
+  transition: width .2s, height .2s, border-color .2s;
 }
+body:has(a:hover) #cursor-ring,
+body:has(button:hover) #cursor-ring { width: 50px; height: 50px; border-color: var(--lime); }
 
-.navbar-brand {
-  padding: 0;
-  margin-right: 30px;
-  /* Magia aquí: Usamos vw para que siga al HOLA en cualquier pantalla */
-  margin-left: 10vw;
-  /* OJO: Si necesitas que vaya más a la izq o der, sube o baja este número (ej. 6vw o 10vw) */
+
+
+/* ════════════════ SCROLL REVEAL ════════════════ */
+.reveal {
+  opacity: 0; transform: translateY(36px);
+  transition: opacity .75s cubic-bezier(.22,1,.36,1), transform .75s cubic-bezier(.22,1,.36,1);
 }
+.reveal.visible { opacity: 1; transform: none; }
+.reveal-d1 { transition-delay: .1s; }
+.reveal-d2 { transition-delay: .22s; }
+.reveal-d3 { transition-delay: .34s; }
 
-.navbar-brand img {
-  height: 50px;
-  width: auto;
-  -o-object-fit: contain;
-  object-fit: contain;
+/* ════════════════ NAVBAR ════════════════ */
+#site-header {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 9999;
+  transition: background .4s ease, border-color .4s ease;
+  border-bottom: 1px solid transparent;
 }
-
+#site-header.scrolled {
+  background: rgba(13,13,11,.88) !important;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom-color: var(--border) !important;
+}
+.navbar { padding: 18px 0; margin: 0; }
+.navbar-brand { margin-left: clamp(20px,6vw,80px); }
+.navbar-brand img { height: 42px; }
 .navbar-nav .nav-link {
-  font-family: 'VendSans', sans-serif;
-  font-weight: 800;
-  color: #F5F8FE !important;
-  font-size: 1 rem;
-  -webkit-transition: color 0.3s ease;
-  -o-transition: color 0.3s ease;
-  transition: color 0.3s ease;
-  text-align: center;
+  font-weight: 600; font-size: 1rem;
+  color: rgba(245,248,254,.7) !important;
+  letter-spacing: .02em; padding: 6px 14px !important;
+  transition: color .25s;
 }
-
-.navbar-nav .nav-link {
-  font-family: 'VendSans', sans-serif;
-  font-weight: 800;
-  color: #F5F8FE !important;
-  font-size: 1.2rem;
-  -webkit-transition: color 0.3s ease;
-  -o-transition: color 0.3s ease;
-  transition: color 0.3s ease;
-  text-align: center;
-}
-
 .navbar-nav .nav-link:hover,
-.navbar-nav .nav-link:focus {
-  -webkit-filter: brightness(0) saturate(100%) invert(85%) sepia(20%) saturate(2500%) hue-rotate(5deg) brightness(105%) contrast(95%);
-  filter: brightness(0) saturate(100%) invert(85%) sepia(20%) saturate(2500%) hue-rotate(5deg) brightness(105%) contrast(95%);
+.navbar-nav .nav-link.active { color: var(--white) !important; }
+.nav-cta {
+  background: var(--lime) !important; color: var(--black) !important;
+  border-radius: 100px; padding: 8px 22px !important;
+  font-weight: 800; font-size: .9rem; letter-spacing: .04em;
+  transition: background .25s, transform .2s !important;
 }
-
+.nav-cta:hover { background: #d4d820 !important; transform: translateY(-2px); }
+.navbar-social { margin-right: clamp(20px,6vw,80px); }
+.navbar-social a img { height: 20px; opacity: .65; transition: opacity .25s, transform .25s; }
+.navbar-social a:hover img { opacity: 1; transform: translateY(-2px); }
 .dropdown-menu {
-  background-color: rgba(29, 29, 27, 0.95);
-  border: 1px solid #01AEB5;
-  z-index: 1051;
+  background: rgba(13,13,11,.96);
+  border: 1px solid var(--border);
+  border-radius: 12px; padding: 8px;
 }
-
-.dropdown-menu .dropdown-item {
-  color: #F5F8FE !important;
-  -webkit-transition: all 0.3s ease;
-  -o-transition: all 0.3s ease;
-  transition: all 0.3s ease;
-  font-family: 'VendSans', sans-serif;
-  font-weight: 800;
-  font-size: 16px;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  /* ESTA ES LA MAGIA: Ajusta la altura de la caja a la letra real */
-  line-height: 0.8;
-  display: block;
+.dropdown-item {
+  color: var(--white) !important; font-weight: 600; font-size: .95rem;
+  border-radius: 8px; padding: 10px 16px; transition: background .2s;
 }
+.dropdown-item:hover { background: var(--mid) !important; }
 
-.dropdown-menu .dropdown-item:hover,
-.dropdown-menu .dropdown-item:focus {
-  background-color: transparent !important;
-  -webkit-filter: brightness(0) saturate(100%) invert(85%) sepia(20%) saturate(2500%) hue-rotate(5deg) brightness(105%) contrast(95%);
-  filter: brightness(0) saturate(100%) invert(85%) sepia(20%) saturate(2500%) hue-rotate(5deg) brightness(105%) contrast(95%);
-}
-
-.navbar-toggler {
-  border: none;
-}
-
-.navbar-toggler-icon {
-  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='%23F5F8FE' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
-}
-
-.social-icons a img {
-  height: 3vh;
-  margin-right: 1vw;
-  -webkit-transition: -webkit-filter 0.3s ease;
-  transition: -webkit-filter 0.3s ease;
-  -o-transition: filter 0.3s ease;
-  transition: filter 0.3s ease;
-  transition: filter 0.3s ease, -webkit-filter 0.3s ease;
-}
-
-.social-icons a:hover img {
-  -webkit-filter: brightness(0) saturate(100%) invert(85%) sepia(20%) saturate(2500%) hue-rotate(5deg) brightness(105%) contrast(95%);
-  filter: brightness(0) saturate(100%) invert(85%) sepia(20%) saturate(2500%) hue-rotate(5deg) brightness(105%) contrast(95%);
-}
-
-
-/* =========================================
-   SECCIÓN HERO (INICIO)
-   ========================================= */
+/* ════════════════ HERO (INICIO) ════════════════ */
 #inicio-hero {
-  width: 100%;
-  overflow-x: hidden;
-  padding: 0 !important;
+  width: 100%; overflow-x: hidden;
+  padding: 0 !important; margin-top: 100px !important;
 }
-
 .img-principal {
-  width: 100%;
-  height: 90%;
-  display: block;
-  margin-left: 3vw;
-  margin-top: 0vw;
-  -webkit-transform-origin: right center;
-  -ms-transform-origin: right center;
-  transform-origin: right center;
+  width: 100%; height: 90%; display: block;
+  margin-left: 3vw; transform-origin: right center;
 }
 
-.hero-text-overlay {
-  z-index: 2;
-  margin-left: 10vw;
-  /* Mantén el número con el que alineaste tu logo */
+  .page-sim {
+    background: var(--page-bg);
+    padding: 40px 0;
+    font-family: 'DM Sans', sans-serif;
+  }
 
-  /* ESTA ES LA MAGIA: Forzamos que se despegue del fondo hacia abajo */
-  margin-bottom: 0 !important;
-  /* Anulamos el mb-4 del HTML */
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  /* Coloca los elementos en una fila */
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  /* Los centra verticalmente para que queden parejos */
-  gap: 2vw;
-  /* Crea un espacio entre el texto y el botón (ajústalo a tu gusto) */
+  .before-section {
+    padding: 30px clamp(20px, 6vw, 80px);
+    color: rgba(245,248,254,.3);
+    font-size: 13px;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+  }
 
+
+
+
+  /* ─── SECCIÓN PORTAFOLIO ─── */
+ .ps {padding-bottom: 10%; }
+
+
+  /* ── HEADER: número gigante + título editorial ── */
+  .ps-header {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: end;
+    gap: 24px;
+    margin-bottom: 64px;
+    position: relative;
+  }
+
+  .ps-big-num {
+    font-family: 'Anton', sans-serif;
+    font-size: clamp(90px, 14vw, 180px);
+    line-height: .85;
+    color: transparent;
+    -webkit-text-stroke: 1px rgba(1,174,181,.25);
+    user-select: none;
+    letter-spacing: -.02em;
+  }
+
+  .ps-title-block { padding-bottom: 8px; padding-left: 10%; padding-top: 10%; }
+
+  .ps-eyebrow {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: .32em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .ps-eyebrow::before {
+    content: '';
+    display: inline-block;
+    width: 28px;
+    height: 1px;
+    background: var(--teal);
+  }
+
+  .ps-title {
+    font-family: 'VendSans', sans-serif;
+    font-size: clamp(36px, 5vw, 64px);
+    color: var(--white);
+    line-height: .95;
+    letter-spacing: .01em;
+    text-transform: uppercase;
+  }
+  .ps-title span {
+    color: var(--teal);
+    -webkit-text-stroke: 0;
+  }
+
+
+ 
+
+  /* ── GRID DE PROYECTOS ── */
+ /* ── GRID DE PROYECTOS ── */
+.ps-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: auto auto;
+  gap: 3px;
+  
+  /* NUEVO: Inclinación y margen para evitar colisiones */
+  transform: skewY(-3deg); 
+  margin: 60px 0; 
+  transform-origin: center;
 }
 
-/* Estilos para el texto descriptivo */
-.hero-subtitle {
-  font-family: 'VendSans', sans-serif;
-  font-weight: 500;
-  font-size: 1.5vw;
-  line-height: 1.2;
-  color: #F5F8FE;
-  margin-bottom: 1vw;
-  text-shadow: 0.15vw 0.15vw 0.4vw rgba(29, 29, 27, 0.7);
-  margin-bottom: 0;
-}
+  /* Tarjeta grande ocupa 2 columnas y 2 filas */
+  .ps-card-main {
+    grid-column: 1 / 3;
+    grid-row: 1 / 3;
+    min-height: 540px;
+  }
 
-/* Tamaño controlado para la imagen de IMAGINACIÓN */
-.img-imaginacion {
-  max-width: 300px;
-  /* Ajusta este valor dependiendo de qué tan grande la quieras */
-  height: auto;
+  .ps-card {
+    position: relative;
+    overflow: hidden;
+    background: var(--black);
+    cursor: pointer;
+    transition: z-index 0s;
+  }
 
-  -webkit-transition: -webkit-transform 0.3s ease;
+  /* Borde superior de color único por tarjeta */
+  .ps-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    z-index: 5;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform .5s cubic-bezier(.23,1,.32,1);
+  }
+  .ps-card:hover::before { transform: scaleX(1); }
+  .ps-card-main::before  { background: var(--lime); }
+  .ps-card-b::before     { background: var(--grape); }
+  .ps-card-c::before     { background: var(--pink); }
 
-  transition: -webkit-transform 0.3s ease;
+  /* Número editorial de fondo */
+  .ps-card-num {
+    position: absolute;
+    bottom: -20px; right: 10px;
+    font-family: 'Anton', sans-serif;
+    font-size: 160px;
+    line-height: 1;
+    color: transparent;
+    -webkit-text-stroke: 1px rgba(245,248,254,.04);
+    user-select: none;
+    z-index: 1;
+    transition: -webkit-text-stroke-color .4s, bottom .5s cubic-bezier(.23,1,.32,1);
+  }
+  .ps-card:hover .ps-card-num {
+    -webkit-text-stroke-color: rgba(245,248,254,.09);
+    bottom: 0;
+  }
 
-  -o-transition: transform 0.3s ease;
+  .ps-card-img {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
+    opacity: .8;
+    transition: opacity .6s, transform .7s ease;
+  }
+  .ps-card:hover .ps-card-img { opacity: .5; transform: scale(1.04); }
 
-  transition: transform 0.3s ease;
+  .ps-card-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(135deg, rgba(13,13,11,.9) 0%, rgba(13,13,11,.4) 100%);
+    transition: opacity .4s;
+  }
+  .ps-card:hover .ps-card-overlay { opacity: .3; }
 
-  transition: transform 0.3s ease, -webkit-transform 0.3s ease;
-}
+  /* Placeholder icon */
+  .ps-icon {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%,-50%);
+    font-size: 48px;
+    opacity: .05;
+    transition: opacity .4s, transform .5s;
+    user-select: none;
+    z-index: 2;
+  }
+  .ps-card:hover .ps-icon { opacity: .12; transform: translate(-50%,-50%) scale(1.3) rotate(8deg); }
 
-/* Un pequeño efecto opcional al pasar el mouse por IMAGINACIÓN */
-.img-imaginacion:hover {
-  -webkit-transform: scale(0.6);
-  -ms-transform: scale(0.6);
-  transform: scale(0.6);
-}
+  /* Contenido de la tarjeta */
+  .ps-card-body {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    padding: 28px 28px 32px;
+    z-index: 4;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .ps-card-tag {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: .3em;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 4px;
+  }
+  .ps-card-tag::before {
+    content: '';
+    display: inline-block;
+    width: 18px; height: 1px;
+  }
+  .ps-card-main .ps-card-tag  { color: var(--lime); }
+  .ps-card-main .ps-card-tag::before { background: var(--lime); }
+  .ps-card-b .ps-card-tag     { color: var(--grape); }
+  .ps-card-b .ps-card-tag::before { background: var(--grape); }
+  .ps-card-c .ps-card-tag     { color: var(--pink); }
+  .ps-card-c .ps-card-tag::before { background: var(--pink); }
+
+  .ps-card-name {
+    font-family: 'VendSans', sans-serif;
+    font-size: clamp(22px, 3vw, 40px);
+    color: var(--white);
+    line-height: .95;
+    text-transform: uppercase;
+    letter-spacing: .02em;
+  }
+  .ps-card-b .ps-card-name,
+  .ps-card-c .ps-card-name { font-size: clamp(18px, 2.2vw, 28px); }
+
+  /* Flecha hover */
+  .ps-card-arrow {
+    position: absolute;
+    top: 24px; right: 24px;
+    width: 38px; height: 38px;
+    display: flex; align-items: center; justify-content: center;
+    border: 1px solid rgba(245,248,254,.12);
+    background: transparent;
+    color: var(--white);
+    text-decoration: none;
+    opacity: 0;
+    transform: translateY(6px);
+    transition: opacity .35s, transform .35s, background .25s, border-color .25s;
+    z-index: 5;
+  }
+  .ps-card:hover .ps-card-arrow {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .ps-card-main:hover .ps-card-arrow  { background: var(--lime); border-color: var(--lime); color: #fff; }
+  .ps-card-b:hover    .ps-card-arrow  { background: var(--grape); border-color: var(--grape); color: var(--black); }
+  .ps-card-c:hover    .ps-card-arrow  { background: var(--pink); border-color: var(--pink); color: #fff; }
+  .ps-card-arrow svg { width: 14px; height: 14px; }
+
+  /* ── REVEAL ── */
+  .reveal { opacity: 0; transform: translateY(32px); transition: opacity .75s ease, transform .75s ease; }
+  .reveal.visible { opacity: 1; transform: none; }
+  .reveal-d1 { transition-delay: .1s; }
+  .reveal-d2 { transition-delay: .2s; }
+  .reveal-d3 { transition-delay: .3s; }
 
 
-/* =========================================
-   FRANJA CELESTE A SANGRE (FUERZA BRUTA)
-   ========================================= */
-#franja-imposible {
-  width: 100%;
-  padding-top: 10vW !important;
-  padding-bottom: 15vW !important;
-  margin: 0 !important;
-  overflow: hidden;
-}
-
-.franja-img {
-  width: 350vw !important;
-  height: auto;
-  display: block;
-}
-
-
-
-
+/* ════════════════ CONSOLA SERVICIOS ════════════════ */
 #servicios-seccion-final {
-  width: 100% !important;
-  background: transparent;
-  padding: 60px 0;
-  overflow: hidden;
-  position: relative;
+  width: 100% !important; background: transparent; padding: 60px 0; overflow: hidden; position: relative;
 }
-
-.titulo-servicios-box {
-  width: 100% !important;
-  text-align: center;
-  margin-bottom: -10px;
-  /* Lo acerca a la mascota */
-  position: relative;
-  z-index: 20;
-}
-
-.titulo-servicios-box img {
-  width: 300px !important;
-  /* Tamaño fijo para PC */
-  height: auto;
-}
-
+.titulo-servicios-box { width: 100% !important; text-align: center; margin-bottom: -10px; position: relative; z-index: 20; }
+.titulo-servicios-box img { width: 300px !important; height: auto; }
+/* Busca esto arriba en tu archivo y déjalo SIN !important */
 .consola-box {
-  position: relative;
-  width: 120vw !important;
-  /* OCUPA TODA LA PANTALLA */
-  left: 50%;
-  right: 50%;
-  margin-left: -60vw;
-  /* TRUCO PARA SANGRE TOTAL */
+  position: relative; 
+  width: 120vw; /* Quitamos el !important de aquí */
+  left: 50%; 
+  right: 50%; 
+  margin-left: -60vw; 
   line-height: 0;
 }
-
-.bg-mascota {
-  width: 100% !important;
-  /* La mascota manda en el ancho */
-  height: auto !important;
-  display: block;
-}
-
+.bg-mascota { width: 100% !important; height: auto !important; display: block; }
 .botones-container {
   position: absolute;
   top: 0;
@@ -371,350 +442,121 @@ header {
   width: 100%;
   height: 100%;
   z-index: 10;
+  /* Control estricto para Safari */
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
 }
-
-.btn-item {
-  position: absolute;
-  width: 12% !important;
-  /* BOTONES PEQUEÑOS Y ELEGANTES */
-  text-align: center;
-}
-
-
-.btn-item img {
-  width: 80%;
-  height: auto;
-}
-
+.btn-item { position: absolute; width: 12% !important; text-align: center; }
+.btn-item img { width: 80%; height: auto; }
 .btn-item img:hover {
-  -webkit-filter: brightness(0) saturate(100%) invert(88%) sepia(59%) saturate(601%) hue-rotate(12deg) brightness(107%) contrast(104%);
   filter: brightness(0) saturate(100%) invert(88%) sepia(59%) saturate(601%) hue-rotate(12deg) brightness(107%) contrast(104%);
 }
-
-
 .btn-item p {
-  color: white;
-  font-family: 'VendSans', sans-serif;
-  font-style: italic;
-  font-size: 25px;
-  /* Subimos un poco el tamaño para web */
-  line-height: 1.2;
-  /* ¡ESTO ARREGLA EL TRASLAPE! Le da espacio normal entre líneas */
-  margin-top: 10px;
-
-  /* Opcional: Si quieres que en PC el texto se mantenga en una sola línea, usa esto: */
-  white-space: nowrap;
+  color: white; font-family: 'VendSans', sans-serif; font-style: italic; font-size: 25px;
+  line-height: 1.2; margin-top: 10px; 
 }
+.btn-izquierda { width: 15% !important; top: 45%; left: calc(35% - 25vw); }
+.btn-derecha { top: 45%; right: calc(35% - 25vw); }
 
-.btn-izquierda {
-  width: 15% !important;
-  top: 45%;
-  left: calc(35% - 25vw);
-  /* Se ubica en el centro y retrocede hacia la izquierda */
-}
-
-.btn-derecha {
-  top: 45%;
-  right: calc(35% - 25vw);
-  /* Se ubica en el centro y retrocede hacia la derecha */
-}
-
-/* =============================================
-       SECCIÓN MARCAS
-       ============================================= */
-#marcas-seccion {
-  background-color: transparent;
-  margin: 10vw 0 5vw 0;
-  padding: 6vw 0 8vw 0;
-  overflow: hidden;
-}
-
-.marcas-header {
-  padding: 0 5vw;
-}
-
-.marcas-eyebrow {
-  font-family: 'VendSans', sans-serif;
-  font-weight: 800;
-  font-size: 1vw;
-  letter-spacing: 0.3em;
-  color: #01AEB5;
-  text-transform: uppercase;
-  margin-bottom: 0.5em;
-}
-
-.img-titulo-principal {
-  width: 45vw;
-  /* Ocupará cerca de la mitad del ancho de la pantalla en PC */
-  max-width: 600px;
-  /* Evita que se haga gigante si la pantalla es enorme */
-  height: auto;
-  /* Mantiene la proporción perfecta del diseño */
-  display: inline-block;
-}
-
-/* ---- Carrusel infinito ---- */
+/* ════════════════ SECCIÓN MARCAS ════════════════ */
+#marcas-seccion { background-color: transparent; margin: 2vw 0 2vw 0; padding: 6vw 0 8vw 0; overflow: hidden; }
+.marcas-header { padding: 0 5vw; }
+.marcas-eyebrow { font-family: 'VendSans', sans-serif; font-weight: 800; font-size: 1vw; letter-spacing: 0.3em; color: #01AEB5; text-transform: uppercase; margin-bottom: 0.5em; }
+.img-titulo-principal { width: 45vw; max-width: 600px; height: auto; display: inline-block; }
 .marcas-track-wrapper {
-  position: relative;
-  margin-top: 5vw;
-  /* Bordes difuminados laterales */
-  -webkit-mask-image: linear-gradient(to right,
-      transparent 0%,
-      black 10%,
-      black 90%,
-      transparent 100%);
-  mask-image: linear-gradient(to right,
-      transparent 0%,
-      black 10%,
-      black 90%,
-      transparent 100%);
+  position: relative; margin-top: 5vw;
+  mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
 }
-
-.marcas-track {
-  display: flex;
-  align-items: center;
-  gap: 3vw;
-  width: max-content;
-  animation: marcas-scroll 28s linear infinite;
-}
-
-.marcas-track:hover {
-  animation-play-state: paused;
-}
+.marcas-track { display: flex; align-items: center; gap: 3vw; width: max-content; animation: marcas-scroll 28s linear infinite; }
+.marcas-track:hover { animation-play-state: paused; }
 
 @keyframes marcas-scroll {
-  0% {
-    transform: translateX(0);
-  }
-
-  100% {
-    transform: translateX(-50%);
-  }
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
 }
-
 .marca-item {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 180px;
-  height: 80px;
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 12px;
-  padding: 0 2vw;
-  transition: border-color 0.3s ease, background 0.3s ease;
-  flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center; min-width: 180px; height: 80px;
+  background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px; padding: 0 2vw; transition: border-color 0.3s ease, background 0.3s ease; flex-shrink: 0;
+}
+.marca-item:hover { border-color: #01AEB5; background: rgba(1, 174, 181, 0.07); }
+.marca-item img { max-height: 50px; max-width: 140px; width: auto; object-fit: contain; opacity: 0.7; transition: opacity 0.3s ease, transform 0.3s ease; }
+.marca-item:hover img { opacity: 1; transform: scale(1.05); }
+
+/* ════════════════ CTA FINAL ════════════════ */
+#cotiza-seccion { padding: var(--gap) clamp(24px, 8vw, 100px); position: relative; overflow: hidden; }
+#cotiza-seccion::before {
+  content: ''; position: absolute; top: 50%; left: 50%;
+  -webkit-transform: translate(-50%, -50%); transform: translate(-50%, -50%);
+  width: 50vw; height: 50vw; max-width: 600px; max-height: 600px;
+  background: radial-gradient(circle, rgba(229,234,38,.055) 0%, transparent 70%);
+  border-radius: 50%; pointer-events: none;
+  animation: cta-pulse 4s ease-in-out infinite alternate;
+  -webkit-animation: cta-pulse 4s ease-in-out infinite alternate;
 }
 
-.marca-item:hover {
-  border-color: #01AEB5;
-  background: rgba(1, 174, 181, 0.07);
+@keyframes cta-pulse {
+  from { transform: translate(-50%,-50%) scale(.85); -webkit-transform: translate(-50%,-50%) scale(.85); }
+  to   { transform: translate(-50%,-50%) scale(1.1); -webkit-transform: translate(-50%,-50%) scale(1.1); }
+}
+@-webkit-keyframes cta-pulse {
+  from { -webkit-transform: translate(-50%,-50%) scale(.85); }
+  to   { -webkit-transform: translate(-50%,-50%) scale(1.1); }
 }
 
-/* Cuando uses imágenes reales, reemplaza .marca-placeholder con un <img> */
-.marca-placeholder {
-  font-family: 'VendSans', sans-serif;
-  font-weight: 700;
-  font-size: 1vw;
-  color: rgba(245, 248, 254, 0.35);
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  white-space: nowrap;
+.cotiza-box { position: relative; z-index: 2; padding: clamp(30px, 5vw, 60px) 0; -webkit-transform: translateZ(0); transform: translateZ(0); }
+.cotiza-hl { font-weight: 700; font-size: clamp(32px, 5vw, 64px); line-height: 1.05; letter-spacing: -.02em; color: var(--white); margin: .4em 0; }
+.cotiza-hl em { font-style: italic; color: var(--lime); }
+.cotiza-img-btn { display: inline-block; transition: transform .3s ease; -webkit-transition: -webkit-transform .3s ease; -webkit-transform: translateZ(0); transform: translateZ(0); }
+.cotiza-img-btn:hover { transform: scale(1.05); -webkit-transform: scale(1.05); }
+.cotiza-img-btn img { width: 100%; max-width: clamp(240px, 28vw, 380px); height: auto; transition: filter .3s ease; -webkit-transition: -webkit-filter .3s ease; }
+.cotiza-img-btn:hover img {
+  filter: brightness(0) saturate(100%) invert(50%) sepia(85%) saturate(2800%) hue-rotate(145deg) brightness(95%);
+  -webkit-filter: brightness(0) saturate(100%) invert(50%) sepia(85%) saturate(2800%) hue-rotate(145deg) brightness(95%);
 }
 
-.marca-item img {
-  max-height: 50px;
-  max-width: 140px;
-  width: auto;
-  object-fit: contain;
-  /* Quitamos el filter para que no pinte los logos de blanco sobre fondo blanco */
-  opacity: 0.7;
-  /* Se ven un poco más suaves por defecto */
-  transition: opacity 0.3s ease, transform 0.3s ease;
+@media (max-width: 991px) {
+  .cotiza-hl { font-size: clamp(28px, 6vw, 42px); margin-bottom: 0.8em; }
+  .cotiza-img-btn img { max-width: 260px; }
+  
 }
 
-.marca-item:hover img {
-  opacity: 1;
-  /* Se iluminan al 100% al pasar el mouse */
-  transform: scale(1.05);
-  /* Un pequeño efecto visual extra de agrandado */
+/* ════════════════ FOOTER ════════════════ */
+footer { background-color: #E5EA26; color: #1D1D1B; font-family: 'VendSans', sans-serif; font-weight: 700; }
+.footer-logo { height: 4vh; width: auto; margin-right: 30px; margin-left: 30px;}
+.footer-icon { height: 3vh; }
+
+/* ════════════════ ANIMACIÓN BOOMYHERO ════════════════ */
+@keyframes boomyheroDynamic {
+  0%, 100% { transform: translate(-50%, -50%) scale(1) translateY(0) rotate(0deg); filter: brightness(1); }
+  50% { transform: translate(-50%, -50%) scale(1.1) translateY(-15px) rotate(10deg); filter: brightness(1.3); }
+}
+@-webkit-keyframes boomyheroDynamic {
+  0%, 100% { -webkit-transform: translate(-50%, -50%) scale(1) translateY(0) rotate(0deg); -webkit-filter: brightness(1); }
+  50% { -webkit-transform: translate(-50%, -50%) scale(1.1) translateY(-15px) rotate(10deg); -webkit-filter: brightness(1.3); }
 }
 
-/* ---- Responsive ---- */
+.boomyhero-container {
+  position: absolute; top: 72%; left: 40%; transform: translate(-50%, -50%); -webkit-transform: translate(-50%, -50%);
+  width: 400px; height: 400px; z-index: 10; pointer-events: none;
+}
+.boomyhero-mascota {
+  position: absolute; width: 100%; height: auto; object-fit: contain; transform-origin: center center;
+  animation: boomyheroDynamic 5s ease-in-out infinite; -webkit-animation: boomyheroDynamic 5s ease-in-out infinite;
+}
+
+/* ════════════════ RESPONSIVE (MÓVIL) ════════════════ */
 @media (max-width: 768px) {
-  .marcas-eyebrow {
-    font-size: 2.5vw;
-  }
+  /* Desactivar cursor personalizado en móviles para evitar tirones */
+  #cursor-dot, #cursor-ring { display: none; }
+  * { cursor: auto !important; }
 
-.img-titulo-principal {
-    width: 80vw;     /* En celulares se agranda para que se pueda leer bien el diseño */
-  }
+  /* Ajustes de espacio para Marcas */
+  #marcas-seccion { padding: 0 !important; margin: 0 !important; }
 
-  .marca-item {
-    min-width: 120px;
-    height: 60px;
-  }
-
-  .marca-placeholder {
-    font-size: 2.5vw;
-  }
-}
-
-
-
-
-
-/* =========================================
-   BOTÓN IMAGEN (COTIZA CON NOSOTROS)
-   ========================================= */
-.cotiza-btn {
-  display: inline-block;
-  cursor: pointer;
-  padding-bottom: 15vh;
-
-}
-
-.cotiza-btn img {
-  width: 30vw;
-  min-width: 250px;
-  max-width: 450px;
-  -webkit-transition: -webkit-filter 0.3s ease, -webkit-transform 0.3s ease;
-  transition: -webkit-filter 0.3s ease, -webkit-transform 0.3s ease;
-  -o-transition: filter 0.3s ease, transform 0.3s ease;
-  transition: filter 0.3s ease, transform 0.3s ease;
-  transition: filter 0.3s ease, transform 0.3s ease, -webkit-filter 0.3s ease, -webkit-transform 0.3s ease;
-}
-
-
-
-/* El efecto al pasar el mouse (Hover) */
-.cotiza-btn:hover img {
-  -webkit-transform: scale(1.05);
-  -ms-transform: scale(1.05);
-  transform: scale(1.05);
-  /* Pequeño salto hacia adelante */
-
-  /* Fórmula matemática exacta para transformarlo a tu celeste #01AEB5 */
-  -webkit-filter: brightness(0) saturate(100%) invert(50%) sepia(85%) saturate(2800%) hue-rotate(145deg) brightness(95%) contrast(100%);
-  filter: brightness(0) saturate(100%) invert(50%) sepia(85%) saturate(2800%) hue-rotate(145deg) brightness(95%) contrast(100%);
-}
-
-footer {
-  background-color: #E5EA26;
-  color: #1D1D1B;
-  font-family: 'VendSans', sans-serif;
-  font-weight: 700;
-
-
-}
-
-.footer-logo {
-  height: 6vh;
-  width: auto;
-  margin-right: 30px;
-
-}
-
-
-.footer-icon {
-  height: 3vh;
-}
-
-
-
-@media (max-width: 768px) {
-  body {
-    background-image: url('imagenes/fondonegro.webp');
-    background-position: top center;
-    background-attachment: scroll;
-    background-color: #1D1D1B;
-    background-repeat: no-repeat;
-    background-size: 100% auto;
-  }
-
-  .navbar {
-    background-color: #1D1D1B;
-  }
-
-  .navbar-collapse {
-    text-align: center;
-    background-color: #1D1D1B;
-    padding: 5%;
-  }
-
-  .social-icons {
-    -webkit-box-pack: center !important;
-    -ms-flex-pack: center !important;
-    justify-content: center !important;
-  }
-
-  .social-icons a img {
-    height: 24px;
-    margin: 5px;
-  }
-
-  .navbar-nav .nav-link {
-    font-size: 1.1rem;
-  }
-
-  .overlay-text h1 {
-    font-size: 1.2rem;
-  }
-
-  .navbar-brand {
-    margin-left: 5vw;
-    /* Un poco más pegado a la izquierda en celulares */
-  }
-
-
-  #inicio-hero {
-    width: 100%;
-    overflow-x: hidden !important;
-    /* Tijera obligatoria para móviles */
-    padding: 0 !important;
-  }
-
-  .img-principal {
-    width: 120%;
-    /* Lo hacemos un poquito más grande para que el rayo siga sangrando */
-    max-width: none !important;
-    height: auto !important;
-    display: block;
-    margin-left: 8% !important;
-    -webkit-transform: none !important;
-    -ms-transform: none !important;
-    transform: none !important;
-
-  }
-
-  .hero-text-overlay {
-    position: relative !important;
-    left: 0 !important;
-    bottom: auto !important;
-    /* Reseteamos cualquier empuje que hayamos puesto en la versión de PC */
-    padding-left: 5vw !important;
-    padding-right: 5vw !important;
-    padding-bottom: 30px !important;
-    margin-top: 0 !important;
-  }
-
-  .hero-subtitle {
-    font-size: 1.1rem;
-    margin-top: -15px !important;
-    /* Sube el texto un poco para acercarlo a Boomyflip */
-    margin-bottom: 15px !important;
-  }
-
-  .img-imaginacion {
-    max-width: 45vw;
-    /* Buen tamaño para lectura en teléfono */
-  }
-
-  .franja-img {
-    width: 200vw !important;
-  }
-
-
+    #servicios-seccion-final { padding: 0 !important; margin: 0 !important; }
+  
   .titulo-servicios-box img {
     width: 220px !important;
   }
@@ -761,342 +603,107 @@ footer {
     right: 5%;
   }
 
-  #reviews {
-    margin: 5VW 0 5VW 0 !important;
-    padding: 5vw 0;
-    /* Espaciado generoso arriba y abajo */
+
+body {
+   
+    background-position: top center;
+    background-attachment: scroll;
+    background-color: #1D1D1B;
+  
   }
 
-  .review-content {
-    max-width: 75%;
-    /* Le damos más espacio al texto en pantallas pequeñas */
+  .navbar {
+    background-color: #1D1D1B;
   }
 
-  .review-text {
-    font-size: 5vw;
-    /* Texto de la cita más grande */
+  .navbar-collapse {
+    text-align: center;
+    background-color: #1D1D1B;
+    padding: 5%;
   }
 
-  .review-author {
-    font-size: 3vw;
-    /* Autor más grande */
+  .social-icons {
+    -webkit-box-pack: center !important;
+    -ms-flex-pack: center !important;
+    justify-content: center !important;
   }
 
-  .custom-prev-icon,
-  .custom-next-icon {
-    width: 8vw;
-    /* Flechas más grandes en móvil para poder tocarlas bien */
-    height: 8vw;
+  .social-icons a img {
+    height: 24px;
+    margin: 5px;
   }
 
-  .carousel-control-prev.custom-arrow {
-    left: 1vw !important;
-    /* Sube este número (ej. 15vw) si quieres que se acerque MÁS al texto */
-    width: auto !important;
+  .navbar-nav .nav-link {
+    font-size: 1.1rem;
   }
 
-  .carousel-control-next.custom-arrow {
-    right: 1vw !important;
-    /* Debe ser exactamente el mismo número que el de arriba */
-    width: auto !important;
+  .overlay-text h1 {
+    font-size: 1.2rem;
   }
 
-  .cotiza-btn {
-    padding-bottom: 10vh;
-  }
-
-  .footer-icon {
-    height: 3vh;
-    margin-right: 1.5vw;
-    -webkit-transition: -webkit-filter 0.3s ease;
-    transition: -webkit-filter 0.3s ease;
-    -o-transition: filter 0.3s ease;
-    transition: filter 0.3s ease;
-    transition: filter 0.3s ease, -webkit-filter 0.3s ease;
+  .navbar-brand {
+    margin-left: 5vw;
+    /* Un poco más pegado a la izquierda en celulares */
   }
 
 
-  .cotiza-btn:active img,
-  .btn-lime:active,
-  .btn-outline-lime:active {
-    -webkit-transform: scale(0.92) !important;
-    -ms-transform: scale(0.92) !important;
-    transform: scale(0.92) !important;
-    /* Se hace un 8% más pequeño para simular presión */
-    -webkit-transition: -webkit-transform 0.1s ease;
-    transition: -webkit-transform 0.1s ease;
-    -o-transition: transform 0.1s ease;
-    transition: transform 0.1s ease;
-    transition: transform 0.1s ease, -webkit-transform 0.1s ease;
-    /* Súper rápido para que se sienta instantáneo */
+  #inicio-hero {
+    width: 100% !important;
+    height: auto !important;
+    overflow-y: hidden !important;
+
+
   }
 
-
-  /* Definimos la animación CTA Periódica para móviles */
-  @-webkit-keyframes mobileCTAPopWiggle {
-
-    /* 5 segundos quieto de 6 totales (83.33% quieto) */
-    0%,
-    83.33%,
-    100% {
-      -webkit-transform: scale(1) rotate(0deg);
-      transform: scale(1) rotate(0deg);
-      -webkit-filter: drop-shadow(0 0 3px rgba(229, 234, 38, 0.3));
-      filter: drop-shadow(0 0 3px rgba(229, 234, 38, 0.3));
-      /* Brillo muy tenue constante */
-    }
-
-    /* Comienza la acción (pop up y brillo intenso) */
-    85% {
-      -webkit-transform: scale(1.1) rotate(0deg);
-      transform: scale(1.1) rotate(0deg);
-      /* Se hace un poco más grande */
-      -webkit-filter: drop-shadow(0 0 15px rgba(229, 234, 38, 1));
-      filter: drop-shadow(0 0 15px rgba(229, 234, 38, 1));
-      /* Brillo intenso #E5EA26 */
-    }
-
-    /* Pequeño wiggle (meneo) para simular un clic */
-    87% {
-      -webkit-transform: scale(1.1) rotate(-5deg);
-      transform: scale(1.1) rotate(-5deg);
-    }
-
-    89% {
-      -webkit-transform: scale(1.1) rotate(5deg);
-      transform: scale(1.1) rotate(5deg);
-    }
-
-    91% {
-      -webkit-transform: scale(1.1) rotate(-2deg);
-      transform: scale(1.1) rotate(-2deg);
-    }
-
-    93% {
-      -webkit-transform: scale(1.1) rotate(2deg);
-      transform: scale(1.1) rotate(2deg);
-    }
-
-    /* Termina el meneo, se mantiene grande y brillante un instante */
-    95% {
-      -webkit-transform: scale(1.1) rotate(0deg);
-      transform: scale(1.1) rotate(0deg);
-      -webkit-filter: drop-shadow(0 0 15px rgba(229, 234, 38, 1));
-      filter: drop-shadow(0 0 15px rgba(229, 234, 38, 1));
-    }
-
-    /* Comienza a volver a su estado normal */
+  .img-principal {
+    width: 100% !important;
+    /* Lo hacemos un poquito más grande para que el rayo siga sangrando */
+    max-width: none !important;
+    height: auto !important;
+    display: block;
+    margin-left: 8% !important;
+    -webkit-transform: none !important;
+    -ms-transform: none !important;
+    transform: none !important;
+   
   }
+  .boomyhero-mascota {
+    width: 30%;  position: absolute; top: 45%; left: 43%}
 
-  @keyframes mobileCTAPopWiggle {
 
-    /* 5 segundos quieto de 6 totales (83.33% quieto) */
-    0%,
-    83.33%,
-    100% {
-      -webkit-transform: scale(1) rotate(0deg);
-      transform: scale(1) rotate(0deg);
-      -webkit-filter: drop-shadow(0 0 3px rgba(229, 234, 38, 0.3));
-      filter: drop-shadow(0 0 3px rgba(229, 234, 38, 0.3));
-      /* Brillo muy tenue constante */
-    }
+.ps{ padding: 20% 0 !important; margin: 0 !important; }
+.marcas-header { padding: 5% 0 !important; }
+.marcas-eyebrow { font-size: 2vw; }
 
-    /* Comienza la acción (pop up y brillo intenso) */
-    85% {
-      -webkit-transform: scale(1.1) rotate(0deg);
-      transform: scale(1.1) rotate(0deg);
-      /* Se hace un poco más grande */
-      -webkit-filter: drop-shadow(0 0 15px rgba(229, 234, 38, 1));
-      filter: drop-shadow(0 0 15px rgba(229, 234, 38, 1));
-      /* Brillo intenso #E5EA26 */
-    }
-
-    /* Pequeño wiggle (meneo) para simular un clic */
-    87% {
-      -webkit-transform: scale(1.1) rotate(-5deg);
-      transform: scale(1.1) rotate(-5deg);
-    }
-
-    89% {
-      -webkit-transform: scale(1.1) rotate(5deg);
-      transform: scale(1.1) rotate(5deg);
-    }
-
-    91% {
-      -webkit-transform: scale(1.1) rotate(-2deg);
-      transform: scale(1.1) rotate(-2deg);
-    }
-
-    93% {
-      -webkit-transform: scale(1.1) rotate(2deg);
-      transform: scale(1.1) rotate(2deg);
-    }
-
-    /* Termina el meneo, se mantiene grande y brillante un instante */
-    95% {
-      -webkit-transform: scale(1.1) rotate(0deg);
-      transform: scale(1.1) rotate(0deg);
-      -webkit-filter: drop-shadow(0 0 15px rgba(229, 234, 38, 1));
-      filter: drop-shadow(0 0 15px rgba(229, 234, 38, 1));
-    }
-
-    /* Comienza a volver a su estado normal */
-  }
-
-  /* Aplicamos la animación a los elementos de botón */
-  .btn-item {
-    /* Los otros estilos móviles que ya definimos antes */
-    width: 30% !important;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: column;
-    flex-direction: column;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-
-    /* --- AQUÍ LA MAGIA --- */
-    /* Llamamos a la animación. Dura 6 segundos, en bucle infinito. */
-    -webkit-animation: mobileCTAPopWiggle 6s ease-in-out infinite;
-    animation: mobileCTAPopWiggle 6s ease-in-out infinite;
-
-    /* Opcional: Para evitar que el texto se mueva con el wiggle, aplicamos la animación solo a la imagen si lo prefieres: 
-           Cambia .btn-item por .btn-item img y mueve 'transform-origin: center center;' aquí.
-        */
-    -webkit-transform-origin: center center;
-    -ms-transform-origin: center center;
-    transform-origin: center center;
-    /* El punto de origen del escalado es el centro */
-  }
-
-  /* ... resto de tu CSS móvil ... */
 
 
 }
 
-/* =========================================
-   ANIMACIÓN DE BOOMYHERO (MASCOTA)
-   ========================================= */
-
-/* 1. Definimos la animación "Púlsar y Flotar" */
-@-webkit-keyframes boomyheroDynamic {
-
-  /* Estado inicial: tamaño normal, posición normal, brillo normal */
-  0% {
-    -webkit-transform: translate(-50%, -50%) scale(1) translateY(0) rotate(0deg);
-    transform: translate(-50%, -50%) scale(1) translateY(0) rotate(0deg);
-    -webkit-filter: brightness(1);
-    filter: brightness(1);
-  }
-
-  /* Estado medio: crece, flota hacia arriba, brilla y gira un poco */
-  50% {
-    -webkit-transform: translate(-50%, -50%) scale(1.1) translateY(-15px) rotate(10deg);
-    transform: translate(-50%, -50%) scale(1.1) translateY(-15px) rotate(10deg);
-    /* Crece 10%, flota 15px arriba */
-    -webkit-filter: brightness(1.3);
-    filter: brightness(1.3);
-    /* Brilla un 30% más */
-  }
-
-  /* Vuelve a su estado inicial para el bucle perfecto */
-  100% {
-    -webkit-transform: translate(-50%, -50%) scale(1) translateY(0) rotate(0deg);
-    transform: translate(-50%, -50%) scale(1) translateY(0) rotate(0deg);
-    -webkit-filter: brightness(1);
-    filter: brightness(1);
-  }
+/* CORRECCIÓN DE INCLINACIÓN PARA CONTENIDO */
+/* Enderezamos las imágenes, el texto y los números para que se lean perfectos */
+.ps-card-img, 
+.ps-card-body, 
+.ps-card-num, 
+.ps-card-arrow,
+.ps-icon {
+  transform: skewY(3deg); /* El valor opuesto al del grid */
 }
 
-@keyframes boomyheroDynamic {
-
-  /* Estado inicial: tamaño normal, posición normal, brillo normal */
-  0% {
-    -webkit-transform: translate(-50%, -50%) scale(1) translateY(0) rotate(0deg);
-    transform: translate(-50%, -50%) scale(1) translateY(0) rotate(0deg);
-    -webkit-filter: brightness(1);
-    filter: brightness(1);
-  }
-
-  /* Estado medio: crece, flota hacia arriba, brilla y gira un poco */
-  50% {
-    -webkit-transform: translate(-50%, -50%) scale(1.1) translateY(-15px) rotate(10deg);
-    transform: translate(-50%, -50%) scale(1.1) translateY(-15px) rotate(10deg);
-    /* Crece 10%, flota 15px arriba */
-    -webkit-filter: brightness(1.3);
-    filter: brightness(1.3);
-    /* Brilla un 30% más */
-  }
-
-  /* Vuelve a su estado inicial para el bucle perfecto */
-  100% {
-    -webkit-transform: translate(-50%, -50%) scale(1) translateY(0) rotate(0deg);
-    transform: translate(-50%, -50%) scale(1) translateY(0) rotate(0deg);
-    -webkit-filter: brightness(1);
-    filter: brightness(1);
-  }
+/* Modificación para el hover de la imagen (manteniendo el scale) */
+.ps-card:hover .ps-card-img { 
+  opacity: .5; 
+  transform: skewY(3deg) scale(1.04); /* Mantenemos el skew y sumamos el scale */
 }
 
-/* 2. Contenedor para centrar y definir el tamaño */
-.boomyhero-container {
-  position: absolute;
-  /* Vital para que flote sobre el fondo */
-  top: 72%;
-  /* Se coloca en el centro vertical de la col-12 */
-  left: 40%;
-  /* Se coloca en el centro horizontal de la col-12 */
-
-  /* El secreto del centrado absoluto: */
-  /* Este translate(-50%, -50%) la centra exactamente en el punto top:50%, left:50% */
-  -webkit-transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-
-  /* Define un tamaño base para el área de la mascota */
-  width: 400px;
-  /* Ajusta este valor al tamaño que quieras en escritorio */
-  height: 400px;
-
-  z-index: 10;
-  /* Asegura que la mascota esté SOBRE el fondo */
-  pointer-events: none;
-  /* No bloquea los clics si pones texto debajo */
+/* Modificación para el hover del icono */
+.ps-card:hover .ps-icon { 
+  opacity: .12; 
+  transform: translate(-50%,-50%) skewY(3deg) scale(1.3) rotate(8deg); 
 }
 
-/* 3. La imagen de la mascota */
-.boomyhero-mascota {
-  position: absolute;
-  /* Para que la animación de transform funcione bien */
-  width: 100%;
-  /* Ocupa todo el contenedor boomyhero-container */
-  height: auto;
-  -o-object-fit: contain;
-  object-fit: contain;
-  /* No se deforma */
-  -webkit-transform-origin: center center;
-  -ms-transform-origin: center center;
-  transform-origin: center center;
-  /* El punto de origen del giro es el centro */
-
-  /* --- AQUÍ LA MAGIA DE LA ANIMACIÓN --- */
-  /* Llamamos a la animación definida arriba. Dura 5s, es suave, bucle infinito */
-  -webkit-animation: boomyheroDynamic 5s ease-in-out infinite;
-  animation: boomyheroDynamic 5s ease-in-out infinite;
-}
-
-/* =========================================
-   VERSIÓN MÓVIL (Responsivo)
-   ========================================= */
-@media (max-width: 768px) {
-  .boomyhero-container {
-    /* Hacemos la mascota un poco más pequeña en móviles */
-    width: 120px;
-    height: 120px;
-    /* Puedes ajustar 'top' si en móviles la explosión queda más arriba o abajo */
-    top: 60%;
-    left: 45%;
-  }
+/* Modificación para el hover del número */
+.ps-card:hover .ps-card-num {
+  -webkit-text-stroke-color: rgba(245,248,254,.09);
+  bottom: 0;
+  transform: skewY(3deg); /* Evita que se tuerza al subir */
 }

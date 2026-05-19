@@ -260,7 +260,7 @@ body:has(button:hover) #cursor-ring { width: 50px; height: 50px; border-color: v
   
   /* ————— NUEVO: LÍNEAS BLANCAS ENTRE PROYECTOS ————— */
   gap: 6px !important;       /* El grosor de las líneas separadoras (igual a los bordes) */
-  background-color: #ffffff; /* El fondo blanco se asoma por el gap creando las líneas */
+  background-color: #01AEB5; /* El fondo blanco se asoma por el gap creando las líneas */
   
   transform: skewY(-3deg); 
   margin: 60px 0; 
@@ -271,8 +271,8 @@ body:has(button:hover) #cursor-ring { width: 50px; height: 50px; border-color: v
   padding: 0 !important; 
 
   /* ————— REBORDE BLANCO GRUESO (ARRIBA Y ABAJO) ————— */
-  border-top: 6px solid #ffffff !important; 
-  border-bottom: 6px solid #ffffff !important; 
+  border-top: 6px solid #01AEB5 !important; 
+  border-bottom: 6px solid #01AEB5 !important; 
 }
 
 /* =============================================

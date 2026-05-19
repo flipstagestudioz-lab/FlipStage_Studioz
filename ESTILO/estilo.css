@@ -304,31 +304,34 @@ body:has(button:hover) #cursor-ring { width: 50px; height: 50px; border-color: v
     font-size: 160px;
     line-height: 1;
     color: transparent;
-    -webkit-text-stroke: 1px rgba(245,248,254,.04);
+    -webkit-text-stroke: 1px rgba(245, 248, 254, 0.103);
     user-select: none;
     z-index: 1;
     transition: -webkit-text-stroke-color .4s, bottom .5s cubic-bezier(.23,1,.32,1);
   }
   .ps-card:hover .ps-card-num {
-    -webkit-text-stroke-color: rgba(245,248,254,.09);
+    -webkit-text-stroke-color: rgba(245, 248, 254, 0.048);
     bottom: 0;
   }
 
-  .ps-card-img {
-    position: absolute; inset: 0;
-    width: 100%; height: 100%;
-    object-fit: cover;
-    opacity: .8;
-    transition: opacity .6s, transform .7s ease;
-  }
-  .ps-card:hover .ps-card-img { opacity: .5; transform: scale(1.04); }
+ .ps-card-img {
+  position: absolute; 
+  inset: 0;
+  width: 100% !important; /* Cambiado de auto a 100% */
+  height: 100% !important;
+  object-fit: cover;
+  object-position: center; /* Asegura que se centre el diseño del mockup */
+  opacity: .9;
+  transition: opacity .6s, transform .7s ease;
+}
+  .ps-card:hover .ps-card-img { opacity: .2; transform: scale(1.04); }
 
   .ps-card-overlay {
     position: absolute; inset: 0;
     background: linear-gradient(135deg, rgba(13,13,11,.9) 0%, rgba(13,13,11,.4) 100%);
     transition: opacity .4s;
   }
-  .ps-card:hover .ps-card-overlay { opacity: .3; }
+  .ps-card:hover .ps-card-overlay { opacity: .9; }
 
   /* Placeholder icon */
   .ps-icon {
@@ -369,11 +372,11 @@ body:has(button:hover) #cursor-ring { width: 50px; height: 50px; border-color: v
     display: inline-block;
     width: 18px; height: 1px;
   }
-  .ps-card-main .ps-card-tag  { color: var(--lime); }
+  .ps-card-main .ps-card-tag  { color: var(); }
   .ps-card-main .ps-card-tag::before { background: var(--lime); }
-  .ps-card-b .ps-card-tag     { color: var(--grape); }
+  .ps-card-b .ps-card-tag     { color: var(--white); }
   .ps-card-b .ps-card-tag::before { background: var(--grape); }
-  .ps-card-c .ps-card-tag     { color: var(--pink); }
+  .ps-card-c .ps-card-tag     { color: var(--white); }
   .ps-card-c .ps-card-tag::before { background: var(--pink); }
 
   .ps-card-name {
@@ -678,32 +681,38 @@ body {
 
 
 }
-
 /* CORRECCIÓN DE INCLINACIÓN PARA CONTENIDO */
 /* Enderezamos las imágenes, el texto y los números para que se lean perfectos */
-.ps-card-img, 
+.ps-card-img {
+  /* Le metemos un scale(1.15) o similar para que la imagen sea un pelín más grande */
+  /* que el contenedor y absorba el vacío que deja el skewY sin salirse gracias al overflow:hidden del padre */
+  transform: skewY(3deg) scale(1.15) !important; 
+  transform-origin: center center;
+}
+
 .ps-card-body, 
 .ps-card-num, 
 .ps-card-arrow,
 .ps-icon {
-  transform: skewY(3deg); /* El valor opuesto al del grid */
+  transform: skewY(3deg) !important; /* El valor opuesto al del grid */
 }
 
-/* Modificación para el hover de la imagen (manteniendo el scale) */
+/* Modificación para el hover de la imagen (manteniendo el skew y aumentando el scale) */
 .ps-card:hover .ps-card-img { 
   opacity: .5; 
-  transform: skewY(3deg) scale(1.04); /* Mantenemos el skew y sumamos el scale */
+  /* Subimos un poquito más el scale del que pusimos por defecto (ej. de 1.15 a 1.22) */
+  transform: skewY(3deg) scale(1.22) !important; 
 }
 
 /* Modificación para el hover del icono */
 .ps-card:hover .ps-icon { 
   opacity: .12; 
-  transform: translate(-50%,-50%) skewY(3deg) scale(1.3) rotate(8deg); 
+  transform: translate(-50%,-50%) skewY(3deg) scale(1.3) rotate(8deg) !important; 
 }
 
 /* Modificación para el hover del número */
 .ps-card:hover .ps-card-num {
   -webkit-text-stroke-color: rgba(245,248,254,.09);
   bottom: 0;
-  transform: skewY(3deg); /* Evita que se tuerza al subir */
+  transform: skewY(3deg) !important; /* Evita que se tuerza al subir */
 }
